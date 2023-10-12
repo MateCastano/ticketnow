@@ -1,0 +1,134 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
+
+
+body{
+    font-family: 'Rubik', sans-serif;
+    font-size: 62.5%;
+
+}
+
+li, a{
+    text-decoration: none;
+    list-style: none;
+    text-transform: uppercase;
+}
+
+img {
+    max-width: 100%;
+}
+
+li{
+    font-size: 1.2rem;
+}
+
+.header {
+    width: 100%;
+    text-align: center;
+    
+}
+
+.header-logo img{
+    
+    width: 10%;
+    
+}
+
+.navbar{
+    
+    text-align: center;
+    width: 100%;
+}
+
+.navbar li {
+   
+    padding: 1rem;
+    display: inline-block;
+    color: #000; 
+    
+}
+
+.navbar a{
+    color: #000; 
+} 
+
+.main form{
+    text-align: center;
+    margin: 3rem 0rem ;
+    width: 100%;
+    
+
+}
+.buscador{
+    padding: .6rem;
+    border-radius: 1rem;
+    width:50%;
+    font-size: .9rem;
+  
+}
+.buscador-btn{
+    border-radius: 1rem;
+    padding: .6rem;
+    font-size: .9rem;
+    text-transform: uppercase;
+    
+  
+}
+
+.recitales {
+    
+    margin-top: 7rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    
+
+}
+    
+
+.recitales img {
+    width: 100%;
+    height: 100%;
+    border-radius: 1rem;
+    object-fit: cover;
+    
+    
+    
+}
+
+.footer {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #A0A0A0;
+    margin-top: 8rem;
+    padding: 3rem 0;
+}
+
+
+.footer-links{
+    
+    text-align: center;
+    width: 100%;
+}
+
+.footer-links li {
+   
+    padding: 1rem;
+    display: inline-block;
+    
+    
+}
+
+.footer-links a{
+    color: #000; 
+    font-size: 1rem;
+
+
+} 
+
+
+
+
+
