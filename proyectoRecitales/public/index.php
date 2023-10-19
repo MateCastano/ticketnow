@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../styles/normalize.css">
+    <link rel="stylesheet" href="../styles/style.css">
 
     <title>TicketNow</title>
 
@@ -14,10 +14,8 @@
 <body>
 
     <header class="header">
-
-
             <a class="header-logo" href="index.html">
-                <img href="index.html" src="/images/logo.png" alt="inicio">
+                <img href="index.html" src="../images/logo.png" alt="inicio">
                 </a>
             
             <nav class="navbar">
@@ -26,15 +24,8 @@
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a href="#">Iniciar sesion</a></li>
-                    
-
                 </ul>
-
-            </nav>
-
-
-
-        
+            </nav>        
     </header>
 
     <main class="main">
@@ -47,24 +38,16 @@
 
         
             <div class="recitales">
-                <img src="/images/duki.jpg" alt="">
-                <img src="/images/ysy a.png" alt="">
-                <img src="/images/khea.jpg" alt="">
-                <img src="/images/nicki.jpg" alt="">
-                <img src="/images/becerra.jpg" alt="">
-
+                <img src="../images/duki.jpg" alt="">
+                <img src="../images/ysy a.png" alt="">
+                <img src="../images/khea.jpg" alt="">
+                <img src="../images/nicki.jpg" alt="">
+                <img src="../images/becerra.jpg" alt="">
+                <img src="../images/badbunny.jpg" alt="">
             </div>
-            
-
-
-
-        
 
     </main>
-
-        
-
-
+    
     </header>
 
     <footer class="footer">

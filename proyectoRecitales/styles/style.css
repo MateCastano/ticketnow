@@ -51,7 +51,10 @@ li{
 .navbar a{
     color: #000; 
 } 
-
+.main{
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
 .main form{
     text-align: center;
     margin: 3rem 0rem ;
@@ -64,26 +67,20 @@ li{
     border-radius: 1rem;
     width:50%;
     font-size: .9rem;
-  
 }
 .buscador-btn{
     border-radius: 1rem;
     padding: .6rem;
     font-size: .9rem;
     text-transform: uppercase;
-    
-  
 }
 
 .recitales {
-    
     margin-top: 7rem;
-    width: 100%;
+    width: 80%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    
-
 }
     
 
@@ -92,9 +89,6 @@ li{
     height: 100%;
     border-radius: 1rem;
     object-fit: cover;
-    
-    
-    
 }
 
 .footer {
@@ -117,8 +111,6 @@ li{
    
     padding: 1rem;
     display: inline-block;
-    
-    
 }
 
 .footer-links a{
