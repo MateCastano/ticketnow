@@ -27,39 +27,27 @@
                 </ul>
             </nav>        
     </header>
-
     <main class="main">
-
-        <form action="" method="GET">
-            
-            <input class="buscador" type="text" name="busqueda" >
-            <input class="buscador-btn" type="submit" name="enviar" value="Buscar">
+        <form action="login-verification.php" method="post" id="Form">
+            <h2>Please log-in!</h2>
+            <br><label>Email:</label><br/>
+                <input type="email" name="email" required />
+            <br/><label>Password:</label><br/>
+                <input type="password" name="password" maxlength="12" required/>
+            <br>
+            <input class="buttom" type="submit" value="Log-in"/>
+                <p>Are you not register? Do it here!</p>
+            <a href="formRegister.php" class="registerButtom">Register</a>	
         </form>
-
-        
-            <div class="recitales">
-                <img src="../images/duki.jpg" alt="">
-                <img src="../images/ysy a.png" alt="">
-                <img src="../images/khea.jpg" alt="">
-                <img src="../images/nicki.jpg" alt="">
-                <img src="../images/becerra.jpg" alt="">
-                <img src="../images/badbunny.jpg" alt="">
-            </div>
-
     </main>
-    
     </header>
-
     <footer class="footer">
         <div class="footer-links">
             <ul>
-
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
                 <li><a href="#">Iniciar sesion</a></li>
-                
-
             </ul>
         </div>
 
