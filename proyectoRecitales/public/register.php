@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +10,8 @@
     <title>TicketNow</title>
 
 </head>
-
 <body>
-
-    <header class="header">
+<header class="header">
             <a class="header-logo" href="../public/index.php">
                 <img href="../public/index.php" src="../images/logo.png" alt="inicio">
                 </a>
@@ -28,19 +26,27 @@
             </nav>        
     </header>
     <main class="main">
-        <form action="login-verification.php" method="post">
-            <h2>Please log-in!</h2>
-            <br><label>Email:</label><br/>
+        <form action="../public/register-verification.php" method="post">
+            <h2>Register here!</h2>
+            <label>Name:
+                <input type="text" name="name" required />
+            </label><br/>
+            <label>Surname:
+                <input type="text" name="surname" required />
+            </label><br/>
+            <label>Email:
                 <input type="email" name="email" required />
-            <br/><label>Password:</label><br/>
+            </label><br/>
+            <label>Username:
+                <input type="text" name="username" maxlength="12" required />
+            </label><br />
+            <label>Password:
                 <input type="password" name="password" maxlength="12" required/>
+            </label><br/>
             <br>
-            <input class="buttom" type="submit" value="Log-in"/>
-                <p>Are you not register? Do it here!</p>
-            <a href="../public/register.php" class="registerButtom">Register</a>	
+            <input class="buttom" type="submit" value="Register !"/>	
         </form>
     </main>
-    </header>
     <footer class="footer">
         <div class="footer-links">
             <ul>
@@ -52,6 +58,5 @@
         </div>
 
     </footer>
-    
 </body>
 </html>

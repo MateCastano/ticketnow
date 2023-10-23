@@ -47,8 +47,6 @@
             </div>
 
     </main>
-    
-    </header>
 
     <footer class="footer">
         <div class="footer-links">

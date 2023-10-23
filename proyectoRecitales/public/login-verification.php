@@ -25,7 +25,7 @@ session_start();
             }
             else
             {
-            include("homeLogueadoMOC.php");
+            include("../public/index.php");
                 ?>
                     <h1 style="color:green;text-align:center;margin-top:12px">User login !</h1>
                 <?php        
@@ -33,7 +33,7 @@ session_start();
         }
         else
         {
-            include("index.php");
+            include("../public/login.php");
             ?>
                 <h1 style="color:red;text-align:center;margin-top:12px">Incorrect password !</h1>
             <?php
