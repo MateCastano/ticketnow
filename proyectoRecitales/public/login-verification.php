@@ -16,20 +16,20 @@ session_start();
             $_SESSION["apellido"] = $usuario["apellido"];
             $_SESSION["username"] = $usuario["username"];
             $_SESSION["email"] = $usuario["email"];
-            $_SESSION["categoria"] = $usuario["categoria"];
+            $_SESSION["tipo_usuario"] = $usuario["tipo_usuario"];
             $_SESSION["loggedIn"] = $usuario[true];  
 
-            if($usuario["categoria"] == "Administrador")
-            {
-                Header("Location: panelMOC.php");
-            }
-            else
-            {
+            // if($usuario["categoria"] == "Administrador")
+            // {
+            //     Header("Location: panelMOC.php");
+            // }
+            // else
+            // {
             include("../public/index.php");
                 ?>
                     <h1 style="color:green;text-align:center;margin-top:12px">User login !</h1>
                 <?php        
-            }
+            //}
         }
         else
         {
@@ -41,7 +41,7 @@ session_start();
     }
     else
     {
-        include("index.php");
+        include("../public/login.php");
         ?>
             <h1 style="color:red;text-align:center;margin-top:12px">This user does not exist !</h1>
         <?php

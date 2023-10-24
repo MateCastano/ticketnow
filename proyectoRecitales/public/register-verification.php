@@ -19,8 +19,8 @@
     }
     else
     {
-        $consulta = mysqli_query($conexionMOC, "INSERT INTO usuarios (nombre, apellido, email, username, password, newsletter, categoria) VALUES('$name','$surname','$email', '$username', '$password', 'Suscriptor')");
-        include("index.html");
+        $consulta = mysqli_query($conection, "INSERT INTO usuarios (nombre, apellido, email, username, password, tipo_usuario, entrada_id) VALUES('$name','$surname','$email', '$username', '$password', 'Suscriptor',null)");
+        include("../public/index.php");
         ?>
             <h1 style="color:green;text-align:center;margin-top:12px">User registred !</h1>
         <?php

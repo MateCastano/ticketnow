@@ -27,24 +27,19 @@
     </header>
     <main class="main">
         <form action="../public/register-verification.php" method="post">
-            <h2>Register here!</h2>
-            <label>Name:
-                <input type="text" name="name" required />
-            </label><br/>
-            <label>Surname:
-                <input type="text" name="surname" required />
-            </label><br/>
-            <label>Email:
-                <input type="email" name="email" required />
-            </label><br/>
-            <label>Username:
-                <input type="text" name="username" maxlength="12" required />
-            </label><br />
-            <label>Password:
-                <input type="password" name="password" maxlength="12" required/>
-            </label><br/>
+            <h2>Ingrese sus datos</h2>
+            <label>Nombre:</label><br/>
+                <input type="text" name="name" required/><br>
+            <br><label>Apellido:</label><br/>
+                <input type="text" name="surname" required/><br>
+            <br><label>Email:</label><br/>
+                <input type="email" name="email" required/><br>
+            <br><label>Nombre de usuario:</label><br/>
+                <input type="text" name="username" maxlength="30" required/><br>
+            <br><label>Contraseña:</label><br/>
+                <input type="password" name="password" maxlength="30" required/><br>
             <br>
-            <input class="buttom" type="submit" value="Register !"/>	
+            <input class="buttom" type="submit" value="Enviar"/>	
         </form>
     </main>
     <footer class="footer">

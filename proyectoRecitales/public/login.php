@@ -29,14 +29,14 @@
     </header>
     <main class="main">
         <form action="login-verification.php" method="post">
-            <h2>Please log-in!</h2>
+            <h2>Inicia sesion</h2>
             <br><label>Email:</label><br/>
-                <input type="email" name="email" required />
-            <br/><label>Password:</label><br/>
-                <input type="password" name="password" maxlength="12" required/>
+                <br><input type="email" name="email" required /></br>
+            <br/><label>Contraseña:</label><br/>
+                <br><input type="password" name="password" maxlength="30" required/></br>
             <br>
             <input class="buttom" type="submit" value="Log-in"/>
-                <p>Are you not register? Do it here!</p>
+                <p>¿Todavia no tenes cuenta? Registrate aqui</p>
             <a href="../public/register.php" class="registerButtom">Register</a>	
         </form>
     </main>

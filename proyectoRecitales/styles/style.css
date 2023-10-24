@@ -8,6 +8,8 @@ body{
     background-color: rgba(255, 255, 255, 0.55);
 }
 
+/*HEADER*/
+
 li, a{
     text-decoration: none;
     list-style: none;
@@ -28,10 +30,10 @@ li{
 }
 
 .header-logo img{
-    
     width: 15%;
-    
 }
+
+/*MENU*/
 
 .navbar{
     background-color: #f59f34;
@@ -43,30 +45,60 @@ li{
    
     padding: 1rem;
     display: inline-block;
-    color: #000; 
-    
+    color: #000;     
 }
 
 .navbar a{
     color: #000; 
-} 
+}
+
+/*MAIN*/
+
 .main{
     padding-left: 1rem;
     padding-right: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    flex-direction: row;
 }
 .main form{
     text-align: center;
+    margin: 3rem;
+    font-size: 1rem;
+    background-color: #f59f34;
+    padding: 1rem;
+    width: 20%;
+}
+
+label{
+    margin: 1rem;
+}
+.buttom{
+    margin: 1rem;
+}
+
+/*BUSCADOR*/
+
+.main-buscador{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: transparent;
+}
+
+.main-buscador form{
+    text-align: center;
     margin: 3rem 0rem ;
     width: 100%;
-    
-
 }
+
 .buscador{
     padding: .6rem;
     border-radius: 1rem;
     width:50%;
     font-size: .9rem;
 }
+
 .buscador-btn{
     border-radius: 1rem;
     padding: .6rem;
@@ -74,29 +106,27 @@ li{
     text-transform: uppercase;
 }
 
+/*CONTENIDO*/
+
 .recitales {
     margin-top: 7rem;
     margin-bottom: 7rem;
     margin-left: 5rem;
     margin-right: 5rem;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
     
-
 .recitales img {
     width: 100%;
     height: 100%;
     border-radius: 1rem;
     object-fit: cover;
 }
-form{
-    font-size: 1rem;
-}
-label{
-    margin: 1rem;
-}
+
+/*FOOTER*/
+
 .footer {
     width: 100%;
     height: 100%;
@@ -122,8 +152,3 @@ label{
     color: #000; 
     font-size: 1rem;
 } 
-
-
-
-
-
