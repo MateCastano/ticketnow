@@ -11,20 +11,12 @@
     
     if(mysqli_num_rows($consulta) > 0)
     {
-        include("../public/register.php");
-        ?>
-            <h1 style="color:red;text-align:center;margin-top:12px">Mail already registred !</h1>
-        <?php
-        
+        header("../public/register.php");
     }
     else
     {
-        $consulta = mysqli_query($conection, "INSERT INTO usuarios (nombre, apellido, email, username, password, tipo_usuario, entrada_id) VALUES('$name','$surname','$email', '$username', '$password', 'Suscriptor',null)");
-        include("../public/index.php");
-        ?>
-            <h1 style="color:green;text-align:center;margin-top:12px">User registred !</h1>
-        <?php
-        
+        $consulta = mysqli_query($conection, "INSERT INTO usuarios(nombre, apellido, username, password, membresia, email) VALUES('$name','$surname', '$username', '$password', 'Suscriptor','$email')");
+        header("../public/index.php");
     }
     mysqli_close($conection);
 ?>

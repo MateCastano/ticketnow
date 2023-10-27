@@ -18,7 +18,7 @@ session_start();
             $_SESSION["apellido"] = $usuario["apellido"];
             $_SESSION["username"] = $usuario["username"];
             $_SESSION["email"] = $usuario["email"];
-            $_SESSION["tipo_usuario"] = $usuario["tipo_usuario"];
+            $_SESSION["membresia"] = $usuario["membresia"];
             $_SESSION["loggedIn"] = $usuario[true];  
 
             // if($usuario["categoria"] == "Administrador")
