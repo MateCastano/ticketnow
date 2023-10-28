@@ -21,7 +21,7 @@
                     <li><a href="../public/index.php">Inicio</a></li>
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
-                    <li><a href="../public/login.php">Iniciar sesion</a></li>
+                    <li><a href="../public/login.php">Mi cuenta</a></li>
                 </ul>
             </nav>        
     </header>
