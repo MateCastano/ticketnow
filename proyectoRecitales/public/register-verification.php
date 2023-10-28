@@ -19,7 +19,7 @@
     }
     else
     {
-        $consulta = mysqli_query($conection, "INSERT INTO usuarios (nombre, apellido, email, username, password, tipo_usuario, entrada_id) VALUES('$name','$surname','$email', '$username', '$password', 'Suscriptor',null)");
+        $consulta = mysqli_query($conection, "INSERT INTO usuarios (nombre, apellido, email, username, password, membresia) VALUES('$name','$surname','$email', '$username', '$password', 'Suscriptor')");
         include("../public/index.php");
         ?>
             <h1 style="color:green;text-align:center;margin-top:12px">User registred !</h1>

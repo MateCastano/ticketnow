@@ -8,6 +8,10 @@ body{
     background-color: rgba(255, 255, 255, 0.55);
 }
 
+input[type="submit"]:hover {
+    cursor: pointer;
+}
+
 /*HEADER*/
 
 li, a{
@@ -62,7 +66,7 @@ li{
     justify-content: space-around;
     flex-direction: row;
 }
-.main form{
+.main .formulario{
     text-align: center;
     margin: 3rem;
     font-size: 1rem;
@@ -86,7 +90,7 @@ label{
     background-color: transparent;
 }
 
-.main-buscador form{
+.main-buscador .form-buscador{
     text-align: center;
     margin: 3rem 0rem ;
     width: 100%;
@@ -117,12 +121,31 @@ label{
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
 }
-    
-.recitales img {
+.recital{
+    text-align: center;
+    position: relative;
+}
+.recital img {
     width: 100%;
     height: 100%;
     border-radius: 1rem;
     object-fit: cover;
+    
+}
+
+.recital a{
+    text-transform: uppercase;
+    font-size: 1rem;
+    justify-content: center;
+    justify-self: center;
+    position: absolute;
+    top: 80%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px;
+    
 }
 
 /*FOOTER*/
@@ -152,3 +175,120 @@ label{
     color: #000; 
     font-size: 1rem;
 } 
+
+
+
+/*PAGINA ADMINISTRADOR*/
+
+.admin h2{
+    text-transform: uppercase;
+}
+.admin .main{
+    display: block;
+}
+
+
+.admin-formulario{
+    margin: auto;
+    margin-top: 1rem;
+    
+    font-size: 1rem;
+    background-color: #f59f34;
+    padding: 1rem;
+    width: 35%;
+    width: fit-content;
+}
+.admin-formulario label{
+    font-weight: bold;
+    
+}
+.admin-formulario br{
+    display: flex;
+}
+
+.admin .main .titulo h2{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.titulo a{
+    text-transform: uppercase;
+    font-size: 1rem;
+    background-color: #3498db;
+    color: #fff;
+    padding: .2rem;
+    height: 3rem;
+    margin: auto 0;
+}
+.admin .eventos h2{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.admin .eventos table{
+   text-align: center;
+   margin: auto;
+   font-size: 1.2rem;
+   width: 70%;
+   border: 1px solid black;
+   padding: 1rem;
+   border-collapse: collapse;
+   margin-bottom: 2rem;
+}
+
+.admin .eventos tr{
+    text-align: center;
+    margin: 2rem;
+    font-size: 1.2rem;
+    width: 70%;
+    border-top: 1px solid black;
+    
+}
+
+.admin .eventos th{
+   padding: 1rem;
+}
+.admin .eventos td{
+    padding: 1rem;
+}
+
+.agregar-button {
+    margin: 1rem;
+    background-color: #0074cc;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 1rem 20%;
+    text-transform: uppercase;
+}
+
+
+.admin .btn-eliminar{
+    
+    text-align: center;
+    margin: 0;
+    font-size: 1rem;
+    padding: 1rem;
+    width: 20%;
+    
+    
+}
+.btn-eliminar-submit{
+    background-color: #E82323;
+    text-transform: uppercase;
+    padding: 0.5rem;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+

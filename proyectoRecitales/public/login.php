@@ -28,7 +28,7 @@
             </nav>        
     </header>
     <main class="main">
-        <form action="login-verification.php" method="post">
+        <form class="formulario" action="login-verification.php" method="post">
             <h2>Inicia sesion</h2>
             <br><label>Email:</label><br/>
                 <br><input type="email" name="email" required /></br>

@@ -26,7 +26,7 @@
             </nav>        
     </header>
     <main class="main">
-        <form action="../public/register-verification.php" method="post">
+        <form class="formulario" action="../public/register-verification.php" method="post">
             <h2>Ingrese sus datos</h2>
             <label>Nombre:</label><br/>
                 <input type="text" name="name" required/><br>

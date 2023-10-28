@@ -30,21 +30,71 @@
 
     <main class="main-buscador">
 
-        <form action="" method="GET">
+        <form class ="form-buscador" action="" method="GET">
             
             <input class="buscador" type="text" name="busqueda" >
             <input class="buscador-btn" type="submit" name="enviar" value="Buscar">
         </form>
 
             <div class="recitales">
-                <img src="../images/duki.jpg" alt="">
-                <img src="../images/ysy a.png" alt="">
-                <img src="../images/khea.jpg" alt="">
-                <img src="../images/nicki.jpg" alt="">
-                <img src="../images/becerra.jpg" alt="">
-                <img src="../images/badbunny.jpg" alt="">
-                <img src="../images/milo j.png" alt="">
-                <img src="../images/eladio carrion.png" alt="">
+
+           
+                
+
+                <div class="recital">
+                    <img src="../images/duki.jpg" alt="">
+
+                    <a href="#">Comprar</a>
+                </div>
+
+                <div class="recital">
+
+                    <img src="../images/ysy a.png" alt="">
+                    <a href="#">Comprar</a>
+                </div>
+
+                <div class="recital">
+
+                    <img src="../images/khea.jpg" alt="">   
+                    <a href="#">Comprar</a>
+                </div>
+
+                <div class="recital">
+
+                    <img src="../images/nicki.jpg" alt="">
+                    <a href="#">Comprar</a>
+                </div>
+
+                <div class="recital">
+
+                    <img src="../images/becerra.jpg" alt="">
+                    <a href="#">Comprar</a>
+                </div>
+
+                <div class="recital">
+
+                    <img src="../images/badbunny.jpg" alt="">
+                    <a href="#">Comprar</a>
+                </div>
+
+                <div class="recital">
+                    <img src="../images/milo j.png" alt="">
+                    <a href="#">Comprar</a>
+                
+                </div>
+
+                <div class="recital">
+                    <img src="../images/eladio carrion.png" alt="">
+                    <a href="#">Comprar</a>
+                
+                </div>
+                
+                
+                
+                
+                
+                
+                
             </div>
 
     </main>
