@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -10,12 +11,6 @@
     <title>TicketNow</title>
 
 </head>
-
-<?php include("../public/conection.php"); 
-
-    $resultado = mysqli_query($conection, "SELECT * FROM recital");
-    
-?>
 
 <body>
 
@@ -32,44 +27,45 @@
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                 </ul>
             </nav>        
-    </header>
-
-    <main class="main-buscador">
-
-        <form class ="form-buscador" action="" method="GET">
-            
-            <input class="buscador" type="text" name="busqueda" >
-            <input class="buscador-btn" type="submit" name="enviar" value="Buscar">
-        </form>
-
-            <div class="recitales">
-
+    </header>        
+        <div class="account">
+            <h3>MI CUENTA</h3>
+            <u><b>NOMBRE</b></u>
             <?php
-            if ($resultado->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($resultado)) {
-                    echo '<div class="recital">
-                        <h3>'. $row["artista"]. '</h3>
-                        <img src="../images/' . $row["imagen_publicidad"] . '" alt="Imagen">
-
-                        <a href="compra.php?dato=' . $row["id"] . '">Comprar</a>
-                    </div>';
-            
-                }
-            
-            } 
+            echo $_SESSION['nombre'] . " ";
             ?>
-            </div>
-
-    </main>
-
-    <footer class="footer">
+            <br>
+            <br><u><b>APELLIDO:</b></u>
+            <?php
+            echo $_SESSION['apellido'] . " ";
+            ?>
+            <br>
+            <br><u><b>USUARIO:</b></u>
+            <?php
+            echo $_SESSION['username'] . " ";
+            ?>
+            <br>
+            <br><u><b>EMAIL:</b></u>
+            <?php
+            echo $_SESSION['email'] . " ";
+            ?>
+            <br>
+            <br><u><b>MEMBRESIA:</b></u>
+            <?php
+            echo $_SESSION['membresia'] . " ";
+            ?>
+            <br>
+            <br>
+            </b><button><a href="../public/logout.php"><b>Logout</b></a></button>
+        </div>
+        <footer class="footer">
         <div class="footer-links">
             <ul>
 
-                <li><a href="#">Inicio</a></li>
+                <li><a href="../public/index.php">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#">Iniciar sesion</a></li>
+                <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                 
 
             </ul>

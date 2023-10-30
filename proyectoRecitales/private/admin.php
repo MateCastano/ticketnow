@@ -20,8 +20,8 @@
 <body class="admin">
 
     <header class="header">
-                <a class="header-logo" href="index.html">
-                    <img href="index.html" src="../images/logo.png" alt="inicio">
+                <a class="header-logo" href="../public/index.php">
+                    <img href="../public/index.php" src="../images/logo.png" alt="inicio">
                     </a>
                 
                 <nav class="navbar">
@@ -29,7 +29,7 @@
                         <li><a href="#">Inicio</a></li>
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>                  
-                        <li><a href="#">Iniciar sesion</a></li>
+                        <li><a href="../public/account.php">Mi cuenta</a></li>
                     </ul>
                 </nav>        
         </header>
@@ -62,17 +62,10 @@
  	
             </form>
 
-            
-
         </div>
 
-        
-
         </div>
-            
-
-        
-           
+              
         <div class="eventos">
         <h2>Eventos</h2>
         <table>
@@ -107,17 +100,11 @@
                     echo '</tr>';
                     
                 }
-
-                
-
                 
             } 
             ?>
     </table>
-     
-
         </div>
-
     </main>
 </body>
 </html>
