@@ -11,6 +11,12 @@
 
 </head>
 
+<?php include("../public/conection.php"); 
+
+    $resultado = mysqli_query($conection, "SELECT * FROM recital");
+    
+?>
+
 <body>
 
     <header class="header">
@@ -39,9 +45,22 @@
             <div class="recitales">
 
            
-                
+            <?php
+            if ($resultado->num_rows > 0) {
+                while ($row = mysqli_fetch_assoc($resultado)) {
+                    echo '<div class="recital">
+                        <h3>'. $row["artista"]. '</h3>
+                        <img src="../images/' . $row["imagen_publicidad"] . '" alt="Imagen">
 
-                <div class="recital">
+                        <a href="compra.php?dato=' . $row["id"] . '">Comprar</a>
+                    </div>';
+            
+                }
+            
+            } 
+            ?>
+            
+                <!-- <div class="recital">
                     <img src="../images/duki.jpg" alt="">
 
                     <a href="#">Comprar</a>
@@ -89,7 +108,7 @@
                 
                 </div>
                 
-                
+        -->
                 
                 
                 
