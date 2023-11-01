@@ -47,7 +47,7 @@
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#">Iniciar sesion</a></li>
+                
             </ul>
         </div>
 

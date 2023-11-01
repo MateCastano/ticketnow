@@ -30,6 +30,16 @@
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php 
+                        session_start();
+
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
                 </ul>
             </nav>        
     </header>
@@ -44,6 +54,7 @@
 
             <div class="recitales">
 
+           
             <?php
             if ($resultado->num_rows > 0) {
                 while ($row = mysqli_fetch_assoc($resultado)) {
@@ -58,6 +69,7 @@
             
             } 
             ?>
+                      
             </div>
 
     </main>
@@ -69,7 +81,7 @@
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#">Iniciar sesion</a></li>
+                
                 
 
             </ul>

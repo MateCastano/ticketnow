@@ -1,7 +1,7 @@
 <?php 
 include("../public/conection.php"); 
-session_start();
 
+    session_start();
     $email = $_POST["email"];
     $password = $_POST["password"];
 
@@ -14,6 +14,7 @@ session_start();
 
         if(password_verify($password, $hashPassword))
         {
+            
             $_SESSION["nombre"] = $usuario["nombre"];
             $_SESSION["apellido"] = $usuario["apellido"];
             $_SESSION["username"] = $usuario["username"];
@@ -23,14 +24,14 @@ session_start();
 
              if($usuario["membresia"] == "Administrador")
                 {
-                    Header("Location: ../private/admin.php ");
+                    Header("Location: ../private/admin.php");
                 }
              else
              {
-                include("../public/index.php");
-                ?>
-                    <h1 style="color:green;text-align:center;margin-top:12px">User login !</h1>
-                <?php        
+                Header("Location: ../public/index.php");
+                
+                    echo '<h1 style="color:green;text-align:center;margin-top:12px">User login !</h1>';
+                       
             }
             }
         else
@@ -40,10 +41,10 @@ session_start();
     }
     else
     {
+        echo '<h1 style="color:red;text-align:center;margin-top:12px">Este mail no está registrado</h1>';
         include("../public/login.php");
-        ?>
-            <h1 style="color:red;text-align:center;margin-top:12px">Este mail no esta registrado</h1>
-        <?php
+           
+        
     }
 
     mysqli_free_result($resultado);

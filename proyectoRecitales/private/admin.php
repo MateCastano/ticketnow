@@ -22,11 +22,11 @@
     <header class="header">
                 <a class="header-logo" href="../public/index.php">
                     <img href="../public/index.php" src="../images/logo.png" alt="inicio">
-                    </a>
+                </a>
                 
                 <nav class="navbar">
                     <ul>
-                        <li><a href="#">Inicio</a></li>
+                        <li><a href="../public/index.php">Inicio</a></li>
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>                  
                         <li><a href="../public/account.php">Mi cuenta</a></li>
@@ -52,20 +52,31 @@
                 <select name="estadio" required>
                     <option value="" disabled selected>Seleccione un estadio</option>
                     <option value="River">River</option>  
+                    <option value="Vélez">Vélez</option> 
+                    <option value="Obras">Obras</option> 
                 </select><br>
 
                 <br><label>Imagen: </label>
                <input type="file" name="imagen_publicidad" required></br>
                 
-                
+               <br><label>Precio: </label>
+                    <input type="number" name="precio" required /></br>
+
                 <input class="agregar-button" type="submit" value="Agregar recital"/>
  	
             </form>
 
-        </div>
+            
 
         </div>
-              
+
+        
+
+        </div>
+            
+
+        
+           
         <div class="eventos">
         <h2>Eventos</h2>
         <table>
@@ -75,6 +86,7 @@
             <th>Fecha</th>
             <th>Horario</th>
             <th>Estadio</th>
+            <th>Precio</th>
             <!--<th>Imagen</th> PARA MOSTRAR LA IMAGEN EN EL REGISTRO--> 
             
             
@@ -82,13 +94,23 @@
         </tr>
         <?php
             if ($resultado->num_rows > 0) {
+                
+
                 while ($row = mysqli_fetch_assoc($resultado)) {
+
+                    $estadioResultado = mysqli_query($conection, "SELECT * FROM estadio WHERE id = " . $row['estadio_id']);
+                    $estadio = mysqli_fetch_assoc($estadioResultado);
+                    
+
+
+
                     echo "<tr>";
                     echo "<td>" . $row["id"] . "</td>";
                     echo "<td>" . $row["artista"] . "</td>";
                     echo "<td>" . $row["fecha"] . "</td>";
                     echo "<td>" . $row["hora"] . "</td>";
-                    echo "<td>" . $row["estadio_id"] . "</td>";
+                    echo "<td>" . $estadio["nombre"] . "</td>";
+                    echo "<td>" . $row["precio"] . "</td>";
                     //echo '<td><img src="../images/' . $row["imagen_publicidad"] . '" alt="Imagen"></td>'; PARA MOSTRAR LA IMAGEN EN EL REGISTRO
 
                     echo '<td>'; 
@@ -100,11 +122,17 @@
                     echo '</tr>';
                     
                 }
+
+                
+
                 
             } 
             ?>
     </table>
+     
+
         </div>
+
     </main>
 </body>
 </html>

@@ -23,48 +23,110 @@
                     <li><a href="../public/index.php">Inicio</a></li>
                     <li><a href="#">Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
-                    <li><a href="../public/login.php">Mi cuenta</a></li>
+                    <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                 </ul>
             </nav>        
     </header>
 
-    <main class= info-compra>
+    <main>
     <?php
         require("../public/conection.php");
 
-        if (isset($_GET['dato'])) {
+        
             $valor = $_GET['dato'];
-            $consulta = mysqli_query($conection, "SELECT * from recital where id = '$valor'");
-            $resultado = mysqli_fetch_assoc($consulta);
-            if(mysqli_num_rows($consulta) > 0)
-            {    
-              
-                echo '<div> <h2>' . $resultado["artista"]. '</h2>
+        
+            
+            $consulta = mysqli_query($conection, "SELECT * FROM recital WHERE id = '$valor'");
+            if (mysqli_num_rows($consulta) > 0) {
+                $resultado = mysqli_fetch_assoc($consulta);
+        
+                echo '<div class="info-compra">';
+                echo '<div class="left">';
+                echo '<h2>' . $resultado["artista"] . '</h2>';
+                echo '<img src="../images/' . $resultado["imagen_publicidad"] . '" alt="Imagen">';
+                echo '</div>';
+        
+                echo '<div class="right">';
+                echo '<h2>Información general</h2>';
+                echo '<p>Fecha: <span>' . $resultado["fecha"] . '</span></p>';
+                echo '<p>Hora: <span>' . $resultado["hora"] . '</span></p>';
+        
                 
-                     <img src="../images/'.$resultado["imagen_publicidad"].'" alt="Imagen">
-                     
-                     </div>
+                $consultaEstadio = mysqli_query($conection, "SELECT nombre FROM estadio WHERE id = '" . $resultado['estadio_id'] . "'");
+                $nombreEstadio = mysqli_fetch_assoc($consultaEstadio);
+        
+                echo '<p>Estadio: <span>' . $nombreEstadio["nombre"] . '</span></p>';
+                echo '</div>';
+                echo '</div>';
+        
                 
-                <div 
-                    <p>Fecha: <span>' .$resultado["fecha"]. '</span> </p>
-                    <p>Hora: <span>' .$resultado["hora"]. '</span> </p>';
+                $consultaEstadio = mysqli_query($conection, "SELECT * FROM estadio WHERE id = '" . $resultado['estadio_id'] . "'");
+                $estadio = mysqli_fetch_assoc($consultaEstadio);
+        
+                $imagenBinaria = $estadio["plano"];
+                $imagenBase64 = base64_encode($imagenBinaria); // Convierte la imagen binaria a base64
+        
+                echo '<div class="info-compra">';
+                echo '<div class="left" style="width: 30%;">';
+                echo '<h2>Ubicación y precios</h2>';
+                echo '<img src="data:image/jpeg;base64,' . $imagenBase64 . '" alt="Imagen">';
+                echo '</div>';
+        
+                echo '<div class="info-precio"><h3>VIP</h3>';
+                $resultadoVIP = $resultado["precio"] * 2;
+                echo '<p>$ ' . $resultadoVIP . '</p>';
 
-                    $consultaEstadio = mysqli_query($conection, "SELECT nombre from estadio where id = '" . $resultado['estadio_id'] . "'");
-                     
-                    $nombreEstadio = mysqli_fetch_assoc($consultaEstadio);
+                echo '<form class="form-entrada" method="post" action="../public/pago.php">';
+                echo '<label for="cantidad_entradas">Cantidad:</label>';
+                echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
+                echo '<input type="hidden" name="tipo_entrada" value="vip">';
+                echo '<input type="hidden" name="precio" value="' . $resultadoVIP . '">';
+                echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';
+                
+                echo '<input class="comprar-button" type="submit" value="COMPRAR">';
+                echo '</form>';
+                
+                
+                echo '</div>';
+                
 
-                    echo '<p>Estadio: <span>' .$nombreEstadio["nombre"]. '</span> </p>
+                echo '<div class="info-precio"><h3>CAMPO</h3>';
+                $resultadoCampo = $resultado["precio"] * 1.4;
+                echo '<p>$ ' . $resultadoCampo . '</p>';
 
-                </div>';
+                echo '<form class="form-entrada" method="post" action="../public/pago.php">';
+                echo '<label for="cantidad_entradas">Cantidad:</label>';
+                echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
+                echo '<input type="hidden" name="tipo_entrada" value="campo">';
+                echo '<input type="hidden" name="precio" value="' . $resultadoCampo . '">';
+                echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';
 
+                echo '<input class="comprar-button" type="submit" value="COMPRAR">';
+                echo '</form>';
+                echo '</div>';
+                
 
+                echo '<div class="info-precio"><h3>PLATEA</h3>';
+                $resultadoPlatea= $resultado["precio"] * 1.5;
+                echo '<p>$ ' . $resultadoPlatea . '</p>';
 
+                echo '<form class="form-entrada" method="post" action="../public/pago.php">';
+                echo '<label for="cantidad_entradas">Cantidad:</label>';
+                echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
+                echo '<input type="hidden" name="tipo_entrada" value="platea">';
+                echo '<input type="hidden" name="precio" value="' . $resultadoPlatea . '">';
+                echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';
 
-
+                echo '<input class="comprar-button" type="submit" value="COMPRAR">';
+                echo '</form>';
+                
+                echo '</div>';
             } else {
-            echo "No se recibió ningún dato.";
-            }
-        }
+                echo 'No se encontraron resultados para el ID proporcionado.';
+                }
+        
+            
+            mysqli_close($conection);
 
     ?>
 
@@ -79,7 +141,7 @@
                 <li><a href="#">Inicio</a></li>
                 <li><a href="#">Nosotros</a></li>
                 <li><a href="#">Contacto</a></li>
-                <li><a href="#">Iniciar sesion</a></li>
+                
                 
 
             </ul>

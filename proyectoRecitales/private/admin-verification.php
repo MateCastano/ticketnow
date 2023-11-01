@@ -2,6 +2,7 @@
 
     if(($_SESSION['membresia']) == "Administrador")
     {
+        
         header("Location: ../private/admin.php");
     }
     else

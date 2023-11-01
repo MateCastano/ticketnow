@@ -7,6 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $fecha = $_POST['fecha'];
     $hora = $_POST['hora'];
     $nombre_estadio = $_POST['estadio'];
+    $precio = $_POST['precio'];
 
     
     $consultaEstadio = mysqli_query($conection, "SELECT id FROM estadio WHERE nombre = '$nombre_estadio'");
@@ -23,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($imagen_temporal, $carpeta_destino)) {
             
             // Insertar datos en la tabla recital
-            $consulta = mysqli_query($conection, "INSERT INTO recital (artista, fecha, hora, estadio_id, imagen_publicidad) VALUES ('$artista', '$fecha', '$hora', $estadio_id, '$imagen_publicidad')");
+            $consulta = mysqli_query($conection, "INSERT INTO recital (artista, fecha, hora, estadio_id, imagen_publicidad, precio) VALUES ('$artista', '$fecha', '$hora', $estadio_id, '$imagen_publicidad','$precio')");
 
 
             

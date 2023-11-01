@@ -135,7 +135,8 @@ label{
     width: 100%;
     height: 100%;
     border-radius: 1rem;
-    object-fit: cover;   
+    object-fit: cover;
+    
 }
 
 .recital a{
@@ -147,8 +148,9 @@ label{
     top: 90%; 
     left: 50%; 
     transform: translate(-50%, -50%); 
-    background-color: #3498db;
-    color: #fff;
+    background-color: #f59f34;
+    color: #000;
+    border: 3px solid #000;
     padding: 10px;
     
 }
@@ -172,11 +174,11 @@ label{
     margin-top: 0rem;
 }
 
+
 /*FOOTER*/
 
 .footer {
     width: 100%;
-    height: 100%;
     text-align: center;
     background-color: #f59f34;
     margin-top: 8rem;
@@ -199,6 +201,8 @@ label{
     color: #000; 
     font-size: 1rem;
 } 
+
+
 
 /*PAGINA ADMINISTRADOR*/
 
@@ -304,9 +308,74 @@ label{
 
 .info-compra{
     display: flex;
-    height: 100%;
+    
+}
+.info-compra .right h2{
+    font-size: 2rem;
+    font-weight: normal;
+    color: #616161;
+    border-bottom: 1px solid #000;
+
+    
+}
+.info-compra .right {
+    margin: 10rem 3rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+
+}
+.info-compra .right span{
+    font-weight: normal;
+
+}
+.info-compra .left h2{
+    
+    font-size: 2rem;
+    border-bottom: 3px solid #616161;
+    text-transform: uppercase;
+}
+.info-compra .left{
+    margin: 2rem;
+    width: 50%;
+
+}
+.info-compra .left img{
+   
+    width: -webkit-fill-available;
+}
+.info-precio{
+    
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 1px solid #000;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+.info-precio h3{
+    background-color: gray;
+    padding: 1rem 0rem;
+    margin: 0;
 }
 
+
+.comprar-button{
+    
+    background-color: #f59f34;
+    color: #000;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    margin: 4% 4%;
+}
+
+
+/* PAGO */ 
+
+.pago{
+    text-align: center;
+    font-size: 1rem;
+}
 
 
 
