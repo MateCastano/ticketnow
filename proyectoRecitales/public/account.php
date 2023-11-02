@@ -28,36 +28,39 @@
                 </ul>
             </nav>        
     </header>        
-        <div class="account">
+    <div class="account-data">
             <h3>MI CUENTA</h3>
-            <u><b>NOMBRE</b></u>
-            <?php
-            echo $_SESSION['nombre'] . " ";
-            ?>
+                <u><b>NOMBRE</b></u>
+                <?php
+                echo $_SESSION['nombre'] . " ";
+                ?>
+                <br>
+                <br><u><b>APELLIDO:</b></u>
+                <?php
+                echo $_SESSION['apellido'] . " ";
+                ?>
+                <br>
+                <br><u><b>USUARIO:</b></u>
+                <?php
+                echo $_SESSION['username'] . " ";
+                ?>
+                <br>
+                <br><u><b>EMAIL:</b></u>
+                <?php
+                echo $_SESSION['email'] . " ";
+                ?>
+                <br>
+                <br><u><b>MEMBRESIA:</b></u>
+                <?php
+                echo $_SESSION['membresia'] . " ";
+                ?>
             <br>
-            <br><u><b>APELLIDO:</b></u>
-            <?php
-            echo $_SESSION['apellido'] . " ";
-            ?>
             <br>
-            <br><u><b>USUARIO:</b></u>
-            <?php
-            echo $_SESSION['username'] . " ";
-            ?>
-            <br>
-            <br><u><b>EMAIL:</b></u>
-            <?php
-            echo $_SESSION['email'] . " ";
-            ?>
-            <br>
-            <br><u><b>MEMBRESIA:</b></u>
-            <?php
-            echo $_SESSION['membresia'] . " ";
-            ?>
+            </b><button><a href="#"><b>Mis entradas</b></a></button>
             <br>
             <br>
             </b><button><a href="../public/logout.php"><b>Logout</b></a></button>
-        </div>
+        </div>  
         <footer class="footer">
         <div class="footer-links">
             <ul>

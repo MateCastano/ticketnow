@@ -20,7 +20,8 @@ include("../public/conection.php");
             $_SESSION["username"] = $usuario["username"];
             $_SESSION["email"] = $usuario["email"];
             $_SESSION["membresia"] = $usuario["membresia"];
-            $_SESSION["loggedIn"] = $usuario[true];  
+            $_SESSION["loggedIn"] = $usuario[true];
+            $_SESSION["id"] = $usuario["id"];  
 
              if($usuario["membresia"] == "Administrador")
                 {

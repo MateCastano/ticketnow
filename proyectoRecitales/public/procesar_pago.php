@@ -25,7 +25,7 @@
             echo "Compra realizada con exito!";
 
         } else {
-            echo "No hay suficiente capacidad disponible en el sector del estadio.";
+            echo "Sector agotado, por favor elija otro sector.";
         }
     }
 ?>

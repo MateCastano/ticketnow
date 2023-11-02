@@ -161,21 +161,24 @@ label{
 
 /* ACCOUNT */
 
-.account {
-    background-color: #f59f34;
+.account-data {
+    background-color: #ffffff;
     text-align: center;
     padding: 0rem;
     padding-bottom: 1rem;
     font-size: 1rem;
     margin: 1rem auto;
     width: 50rem;
+    border: 1px solid #000;
+    border-radius: 1rem;  
 }
 
-.account h3{
+.account-data h3{
     background-color: #030303;
     color: white;
     padding: 1rem;
     margin-top: 0rem;
+    border-radius: 1rem;  
 }
 
 

@@ -38,7 +38,6 @@
         if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Suscriptor')
         {
             
-            
             $tipo_entrada = $_POST['tipo_entrada'];
             $cantidad_entradas = $_POST['cantidad_entradas'];
             $precio = ($_POST['precio'] * $cantidad_entradas) ;
@@ -81,9 +80,6 @@
         }else if (isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador'){
 
             echo '<h1 style="color:red;text-align:center;margin-top:12px">No puedes realizar esta acción como administrador. Logeate como usuario.</h1>';
-            
-            
-      
         }else{
             echo '<h1 style="color:red;text-align:center;margin-top:12px">Debes estar logeado para comprar!</h1>';
         }
