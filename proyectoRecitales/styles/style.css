@@ -30,7 +30,10 @@ li{
 
 .header {
     text-align: center;
-    background-color: #000000;
+    background-image: url("../images/fondo-header.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .header-logo img{
@@ -98,13 +101,13 @@ label{
 
 .buscador{
     padding: .6rem;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     width:50%;
     font-size: .9rem;
 }
 
 .buscador-btn{
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: .6rem;
     font-size: .9rem;
     text-transform: uppercase;
@@ -150,7 +153,8 @@ label{
     transform: translate(-50%, -50%); 
     background-color: #f59f34;
     color: #000;
-    border: 3px solid #000;
+    border: 1px solid #000;
+    border-radius: 1rem;
     padding: 10px;
     
 }

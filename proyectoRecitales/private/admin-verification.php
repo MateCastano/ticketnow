@@ -1,6 +1,6 @@
 <?php session_start();
 
-    if(($_SESSION['membresia']) == "Administrador")
+    if(($_SESSION['membresia']) == "Administrador" && $_SESSION['loggedIn'] == true)
     {
         
         header("Location: ../private/admin.php");
