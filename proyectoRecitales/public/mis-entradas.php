@@ -38,37 +38,35 @@
             </nav>        
     </header>        
     <div class="account-data">
-            <h3>MI CUENTA</h3>
-                <u><b>NOMBRE</b></u>
+            <h3>MIS ENTRADAS</h3>
                 <?php
-                echo $_SESSION['nombre'] . " ";
-                ?>
-                <br>
-                <br><u><b>APELLIDO:</b></u>
-                <?php
-                echo $_SESSION['apellido'] . " ";
-                ?>
-                <br>
-                <br><u><b>USUARIO:</b></u>
-                <?php
-                echo $_SESSION['username'] . " ";
-                ?>
-                <br>
-                <br><u><b>EMAIL:</b></u>
-                <?php
-                echo $_SESSION['email'] . " ";
-                ?>
-                <br>
-                <br><u><b>MEMBRESIA:</b></u>
-                <?php
-                echo $_SESSION['membresia'] . " ";
+                    include("../public/conection.php");
+                    $id = $_SESSION['id'];
+                    
+                    $consulta = mysqli_query($conection, "SELECT * from entrada where usuario_id = $id");
+                    if(mysqli_num_rows($consulta))
+                    {
+                        $entrada = mysqli_fetch_array($consulta);
+                        $recital_id = $entrada['recital_id'];
+                        $consulta_2 = mysqli_query($conection, "SELECT * from recital where id = $recital_id");
+
+                        $recital = mysqli_fetch_array($consulta_2);
+                        $estadio_id = $recital['estadio_id'];
+                        $consulta_3 = mysqli_query($conection, "SELECT * from estadio where id = $estadio_id");
+
+                        $estadio = mysqli_fetch_array($consulta_3);
+
+                        echo '<p>Artista: <span>' . $recital['artista'] . '</span></p>';
+                        echo '<p>Fecha: <span>' . $recital['fecha'] . '</span></p>';
+                        echo '<p>Horario: <span>' . $recital['hora'] . '</span></p>';
+                        echo '<p>Estadio: <span>' . $estadio['nombre'] . '</span></p>';
+                    }
+                    else
+                    {
+                        echo "Usted aun no ha comprado entradas";
+                    }
                 ?>
             <br>
-            <br>
-            </b><button><a href="../public/mis-entradas.php"><b>Mis entradas</b></a></button>
-            <br>
-            <br>
-            </b><button><a href="../public/logout.php"><b>Logout</b></a></button>
         </div>  
         <footer class="footer">
         <div class="footer-links">

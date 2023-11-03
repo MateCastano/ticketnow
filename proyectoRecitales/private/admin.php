@@ -30,6 +30,16 @@
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>                  
                         <li><a href="../public/account.php">Mi cuenta</a></li>
+                        <?php 
+                        session_start();
+
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
                     </ul>
                 </nav>        
         </header>
@@ -53,7 +63,9 @@
                     <option value="" disabled selected>Seleccione un estadio</option>
                     <option value="River">River</option>  
                     <option value="Vélez">Vélez</option> 
-                    <option value="Obras">Obras</option> 
+                    <option value="Obras">Obras</option>
+                    <option value="Huracan">Huracan</option>
+                    <option value="GEBA">Geba</option> 
                 </select><br>
 
                 <br><label>Imagen: </label>
