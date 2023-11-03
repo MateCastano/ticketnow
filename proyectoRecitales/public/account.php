@@ -36,7 +36,8 @@
                     ?>
                 </ul>
             </nav>        
-    </header>        
+    </header>     
+    <!-- Datos de la cuenta -->
     <div class="account-data">
             <h3>MI CUENTA</h3>
                 <u><b>NOMBRE</b></u>
@@ -65,11 +66,50 @@
                 ?>
             <br>
             <br>
-            </b><button><a href="../public/mis-entradas.php"><b>Mis entradas</b></a></button>
-            <br>
-            <br>
             </b><button><a href="../public/logout.php"><b>Logout</b></a></button>
-        </div>  
+        </div>
+        <!-- Datos de las entradas asociadasa la cuenta -->
+        <div class="eventos">
+            <h2>Mis entradas</h2>
+                <?php
+                    include("../public/conection.php");
+                    $id = $_SESSION['id'];
+                    
+                    $consulta = mysqli_query($conection, "SELECT * from entrada where usuario_id = $id");
+                    if(mysqli_num_rows($consulta))
+                    {
+			            $entrada = mysqli_fetch_array($consulta);
+                        $recital_id = $entrada['recital_id'];
+                        $consulta_2 = mysqli_query($conection, "SELECT * from recital where id = $recital_id");
+
+                        $recital = mysqli_fetch_array($consulta_2);
+                        $estadio_id = $recital['estadio_id'];
+                        $consulta_3 = mysqli_query($conection, "SELECT * from estadio where id = $estadio_id");
+                        $estadio = mysqli_fetch_array($consulta_3);
+                        
+                        echo '<table>';
+                        echo '<tr>';
+                        echo '<th>Artista</th>';
+                        echo '<th>Fecha</th>';
+                        echo '<th>Horario</th>';
+                        echo '<th>Estadio</th>';
+                        echo '</tr>';
+                        echo '<tr>';
+                        echo '<td>' . $recital['artista']. '</td>';
+                        echo '<td>' . $recital['fecha']. '</td>';
+                        echo '<td>' . $recital['hora']. '</td>';
+                        echo '<td>' . $estadio['nombre']. '</td>';
+
+                        echo '</tr>';
+
+                        echo '</table>';
+                    }
+                    else
+                    {
+                        echo "<p>Usted aun no ha comprado entradas</p>";
+                    }
+                ?>                     
+        </div>       
         <footer class="footer">
         <div class="footer-links">
             <ul>

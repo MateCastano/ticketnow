@@ -161,6 +161,9 @@ label{
 
 /* ACCOUNT */
 
+.data{
+    display: flex;
+}
 .account-data {
     background-color: #ffffff;
     text-align: center;
@@ -170,7 +173,7 @@ label{
     margin: 1rem auto;
     width: 50rem;
     border: 1px solid #000;
-    border-radius: 1rem;  
+    border-radius: 1rem;
 }
 
 .account-data h3{
@@ -181,6 +184,39 @@ label{
     border-radius: 1rem;  
 }
 
+.eventos h2{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.eventos table{
+   text-align: center;
+   margin: auto;
+   font-size: 1.2rem;
+   width: 70%;
+   border: 1px solid black;
+   padding: 1rem;
+   border-collapse: collapse;
+   margin-bottom: 2rem;
+}
+
+.eventos tr{
+    text-align: center;
+    margin: 2rem;
+    font-size: 1.2rem;
+    width: 70%;
+    border-top: 1px solid black;
+    
+}
+.eventos th{
+   padding: 1rem;
+}
+.eventos td{
+    padding: 1rem;
+}
+.eventos p{
+    text-align: center;
+    font-size: medium;
+}
 
 /*FOOTER*/
 
