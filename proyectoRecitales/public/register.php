@@ -39,7 +39,7 @@
             <br><label>Contraseña:</label><br/>
                 <input type="password" name="password" maxlength="30" required/><br>
             <br>
-            <input class="buttom" type="submit" value="Enviar"/>	
+            <input class="buttom" type="submit" value="Registrarse"/>	
         </form>
     </main>
     <footer class="footer">

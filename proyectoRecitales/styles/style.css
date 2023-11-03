@@ -5,7 +5,7 @@
 body{
     font-family: 'Rubik', sans-serif;
     font-size: 62.5%;
-    background-color: rgba(255, 255, 255, 0.55);
+    background-color: rgba(243, 183, 114, 0.329);
 }
 
 input[type="submit"]:hover {
@@ -76,6 +76,7 @@ li{
     background-color: #f59f34;
     padding: 1rem;
     width: 20%;
+    border-radius: 1rem;
 }
 
 label{
@@ -100,23 +101,20 @@ label{
 }
 
 .buscador{
-    padding: .6rem;
-    border-radius: 0.5rem;
-    width:50%;
-    font-size: .9rem;
+    background: url(https://cdn0.iconfinder.com/data/icons/slim-square-icons-basics/100/basics-19-32.png) no-repeat 0px 5px;
+    background-size: 24px;
+    width: 500px;
+    border: transparent;
+    border-bottom: solid 1px #ccc;
+    padding: 10px 10px 10px 30px;
+    outline: none;
+    font-size: 1rem;
 }
 
-.buscador-btn{
-    border-radius: 0.5rem;
-    padding: .6rem;
-    font-size: .9rem;
-    text-transform: uppercase;
-}
 
 /*CONTENIDO*/
-
+  
 .recitales {
-    margin-top: 7rem;
     margin-bottom: 7rem;
     margin-left: 5rem;
     margin-right: 5rem;
@@ -197,6 +195,7 @@ label{
    padding: 1rem;
    border-collapse: collapse;
    margin-bottom: 2rem;
+   background-color: rgba(255, 255, 255, 0.329);
 }
 
 .eventos tr{
@@ -205,7 +204,6 @@ label{
     font-size: 1.2rem;
     width: 70%;
     border-top: 1px solid black;
-    
 }
 .eventos th{
    padding: 1rem;

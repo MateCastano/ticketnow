@@ -48,8 +48,7 @@
 
         <form class ="form-buscador" action="" method="GET">
             
-            <input class="buscador" type="text" name="busqueda" >
-            <input class="buscador-btn" type="submit" name="enviar" value="Buscar">
+            <input class="buscador" type="text" name="busqueda" placeholder="Busca tu artista favorito aqui">
         </form>
 
             <div class="recitales">
@@ -68,8 +67,7 @@
                 }
             
             } 
-            ?>
-                      
+            ?>        
             </div>
 
     </main>

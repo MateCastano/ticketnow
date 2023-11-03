@@ -1,7 +1,18 @@
 
-<?php include("../public/conection.php"); 
+<?php 
+    include("../public/conection.php"); 
+
+    session_start();
 
     $resultado = mysqli_query($conection, "SELECT * FROM recital");
+    if(!isset($_SESSION['membresia']))
+    {
+        header("Location: ../public/login.php");
+    }
+    else if($_SESSION['membresia'] === 'Suscriptor')
+    {
+        header("Location: ../public/index.php");
+    }
     
 ?>
 
@@ -30,8 +41,7 @@
                         <li><a href="#">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>                  
                         <li><a href="../public/account.php">Mi cuenta</a></li>
-                        <?php 
-                        session_start();
+                        <?php
 
                         if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
                         {
@@ -78,15 +88,9 @@
  	
             </form>
 
-            
-
         </div>
 
-        
-
         </div>
-            
-
         
            
         <div class="eventos">
