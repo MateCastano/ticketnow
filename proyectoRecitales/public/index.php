@@ -27,7 +27,7 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php 
@@ -61,11 +61,10 @@
                         <h3>'. $row["artista"]. '</h3>
                         <img src="../images/' . $row["imagen_publicidad"] . '" alt="Imagen">
 
-                        <a href="compra.php?dato=' . $row["id"] . '">Comprar</a>
+                        <b><a href="compra.php?dato=' . $row["id"] . '">Comprar</a></b>
                     </div>';
             
                 }
-            
             } 
             ?>        
             </div>
@@ -74,15 +73,23 @@
 
     <footer class="footer">
         <div class="footer-links">
-            <ul>
+        <nav class="navbar">
+                <ul>
+                    <li><a href="../public/index.php">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php
 
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-                
-                
-
-            </ul>
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
+                </ul>
+            </nav>
         </div>
 
     </footer>

@@ -11,6 +11,50 @@ body{
 input[type="submit"]:hover {
     cursor: pointer;
 }
+.text{
+    font-size: 13px;
+    border-radius: 4px;
+    line-height: 1.5;
+    padding: 5px 10px;
+    transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+    border: 2px solid #dee1e2;
+    color: rgb(14, 14, 16);
+    background: #dee1e2;
+    display: inline;
+    height: 15px;
+    :hover {
+        border-color: #ccc;
+    }
+    :focus{
+        border-color: #9147ff;
+        background: #fff;
+    }
+}
+.buttom{
+    
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    cursor: pointer;
+    height: 34px;
+    padding: 0 13px;
+    color: #fff;
+    vertical-align: top;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    transition: all .3s ease;
+    background: #cc4d29;
+    border-color: #cc4d29;
+    font-weight: 600;
+    text-transform: uppercase;
+    line-height: 16px;
+    font-size: 11px;
+    :hover {
+        background: #e4461b;
+        border-color: #e4461b;
+    }
+    
+}
 
 /*HEADER*/
 
@@ -19,9 +63,20 @@ li, a{
     list-style: none;
     text-transform: uppercase;
 }
-
-img {
-    max-width: 100%;
+.nosotros{
+    display: flex;
+}
+.nosotros p{
+    font-size: 1.4rem;
+    margin: 5rem;
+}
+.nosotros img{
+    width: 40%;
+    height: 40%;
+    border-radius: 1rem;
+    object-fit: cover;
+    border: 3px solid #f58905;
+    margin: 5rem;
 }
 
 li{
@@ -56,7 +111,12 @@ li{
 }
 
 .navbar a{
-    color: #000; 
+    color: #000;
+    font-weight: bold;
+}
+
+.navbar a:hover{
+    color: #e4461b;
 }
 
 /*MAIN*/
@@ -77,6 +137,7 @@ li{
     padding: 1rem;
     width: 20%;
     border-radius: 1rem;
+    border: 2px solid #000;
 }
 
 label{
@@ -125,19 +186,33 @@ label{
 .recital{
     text-align: center;
     position: relative;
+    margin: 1rem;
+}
+h2{
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    margin: 0;
+    letter-spacing: .1rem;
+    text-align: center;
 }
 .recital h3{
     font-size: 1.4rem;
     text-transform: uppercase;
     margin: 0;
     letter-spacing: .1rem;
+    text-align: center;
 }
 .recital img {
     width: 100%;
     height: 100%;
     border-radius: 1rem;
     object-fit: cover;
-    
+    border: 3px solid #f58905;
+}
+.recitales p{
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0;
 }
 
 .recital a{
@@ -152,9 +227,8 @@ label{
     background-color: #f59f34;
     color: #000;
     border: 1px solid #000;
-    border-radius: 1rem;
+    border-radius: 0.5rem;
     padding: 10px;
-    
 }
 
 /* ACCOUNT */
@@ -242,8 +316,6 @@ label{
     color: #000; 
     font-size: 1rem;
 } 
-
-
 
 /*PAGINA ADMINISTRADOR*/
 

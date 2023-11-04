@@ -69,58 +69,57 @@
             </b><button><a href="../public/logout.php"><b>Logout</b></a></button>
         </div>
         <!-- Datos de las entradas asociadasa la cuenta -->
-        <div class="eventos">
-            <h2>Mis entradas</h2>
+        <h2>Mis entradas</h2>
+            <div class="recitales">
                 <?php
                     include("../public/conection.php");
                     $id = $_SESSION['id'];
-                    
-                    $consulta = mysqli_query($conection, "SELECT * from entrada where usuario_id = $id");
-                    if(mysqli_num_rows($consulta))
+
+                    $consulta = mysqli_query($conection, "SELECT * FROM entrada WHERE usuario_id = $id");
+
+                    if($consulta->num_rows > 0)
                     {
-			            $entrada = mysqli_fetch_array($consulta);
-                        $recital_id = $entrada['recital_id'];
-                        $consulta_2 = mysqli_query($conection, "SELECT * from recital where id = $recital_id");
+                        while($entrada = mysqli_fetch_assoc($consulta)) // Obtiene cada entrada
+                        {
+                            $recital_id = $entrada['recital_id'];
+                            $consulta_2 = mysqli_query($conection, "SELECT * FROM recital WHERE id = $recital_id");
 
-                        $recital = mysqli_fetch_array($consulta_2);
-                        $estadio_id = $recital['estadio_id'];
-                        $consulta_3 = mysqli_query($conection, "SELECT * from estadio where id = $estadio_id");
-                        $estadio = mysqli_fetch_array($consulta_3);
-                        
-                        echo '<table>';
-                        echo '<tr>';
-                        echo '<th>Artista</th>';
-                        echo '<th>Fecha</th>';
-                        echo '<th>Horario</th>';
-                        echo '<th>Estadio</th>';
-                        echo '</tr>';
-                        echo '<tr>';
-                        echo '<td>' . $recital['artista']. '</td>';
-                        echo '<td>' . $recital['fecha']. '</td>';
-                        echo '<td>' . $recital['hora']. '</td>';
-                        echo '<td>' . $estadio['nombre']. '</td>';
-
-                        echo '</tr>';
-
-                        echo '</table>';
+                            $recital = mysqli_fetch_array($consulta_2);
+                            $estadio_id = $recital['estadio_id'];
+                            $consulta_3 = mysqli_query($conection, "SELECT * FROM estadio WHERE id = $estadio_id");
+                            $estadio = mysqli_fetch_array($consulta_3);
+                            echo '<div class="recital">
+                            <h3>'. $recital["artista"]. '</h3>
+                            <img src="../images/' . $recital["imagen_publicidad"] . '" alt="Imagen">
+                            <b><a href="#' . $entrada["id"] . '">Ver datos</a></b>
+                            </div>';
+                        }
                     }
                     else
                     {
-                        echo "<p>Usted aun no ha comprado entradas</p>";
+                        echo '<p class="">Usted aun no ha comprado entradas</p>';
                     }
-                ?>                     
+                ?>         
         </div>       
         <footer class="footer">
         <div class="footer-links">
-            <ul>
+        <nav class="navbar">
+                <ul>
+                    <li><a href="../public/index.php">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php
 
-                <li><a href="../public/index.php">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-                <li><a href="../public/account-verification.php">Mi cuenta</a></li>
-                
-
-            </ul>
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
+                </ul>
+        </nav>
         </div>
 
     </footer>

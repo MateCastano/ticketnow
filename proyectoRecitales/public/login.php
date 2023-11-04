@@ -21,7 +21,7 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
                     <li><a href="#">Contacto</a></li>
                     <li><a href="../public/login.php">Mi cuenta</a></li>
                 </ul>
@@ -31,9 +31,9 @@
         <form class="formulario" action="login-verification.php" method="post">
             <h2>Inicia sesion</h2>
             <br><label>Email:</label><br/>
-                <br><input type="email" name="email" required /></br>
+                <br><input type="email" name="email" required  class="text"/></br>
             <br/><label>Contraseña:</label><br/>
-                <br><input type="password" name="password" maxlength="30" required/></br>
+                <br><input type="password" name="password" maxlength="30" required class="text"/></br>
             <br>
             <input class="buttom" type="submit" value="Log-in"/>
                 <p>¿Todavia no tenes cuenta? Registrate aqui</p>
@@ -43,12 +43,23 @@
     </header>
     <footer class="footer">
         <div class="footer-links">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-                
-            </ul>
+        <nav class="navbar">
+                <ul>
+                    <li><a href="../public/index.php">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php
+
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
+                </ul>
+            </nav>
         </div>
 
     </footer>

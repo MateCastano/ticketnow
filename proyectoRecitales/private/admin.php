@@ -38,7 +38,7 @@
                 <nav class="navbar">
                     <ul>
                         <li><a href="../public/index.php">Inicio</a></li>
-                        <li><a href="#">Nosotros</a></li>
+                        <li><a href="../public/nosotros.php">Nosotros</a></li>
                         <li><a href="#">Contacto</a></li>                  
                         <li><a href="../public/account.php">Mi cuenta</a></li>
                         <?php
@@ -150,5 +150,27 @@
         </div>
 
     </main>
+    <footer class="footer">
+        <div class="footer-links">
+        <nav class="navbar">
+                <ul>
+                    <li><a href="../public/index.php">Inicio</a></li>
+                    <li><a href="#">Nosotros</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php
+
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
+                </ul>
+            </nav>
+        </div>
+
+    </footer>
 </body>
 </html>
