@@ -57,19 +57,19 @@
           
         <div class="titulo">
             
-        <h2>Agregar recital</h2>
+        <br><h2>Agregar recital</h2>   
             <form class="admin-formulario" action="agregar_recital.php" method="post" enctype="multipart/form-data">
 
                 <br><label>Artista: </label>
-                    <input type="text" name="artista" required /></br>
+                    <input type="text" name="artista" required class="text"/></br>
                 <br/><label>Fecha:</label>
-                    <input type="date" name="fecha" required/></br>
+                    <input type="date" name="fecha" required class="text"/></br>
                 
                 <br><label>Horario: </label>
-                    <input type="time" name="hora" required /></br>
+                    <input type="time" name="hora" required class="text"/></br>
 
                 <br><label>Estadio: </label>
-                <select name="estadio" required>
+                <select name="estadio"required>
                     <option value="" disabled selected>Seleccione un estadio</option>
                     <option value="River">River</option>  
                     <option value="Vélez">Vélez</option> 
@@ -82,9 +82,9 @@
                <input type="file" name="imagen_publicidad" required></br>
                 
                <br><label>Precio: </label>
-                    <input type="number" name="precio" required /></br>
+                    <input type="number" name="precio" required class="text"/></br>
 
-                <input class="agregar-button" type="submit" value="Agregar recital"/>
+                <input class="buttom" type="submit" value="Agregar recital" class="text"/>
  	
             </form>
 
@@ -94,7 +94,7 @@
         
            
         <div class="eventos">
-        <h2>Eventos</h2>
+        <br><h2>Eventos</h2><br>
         <table>
         <tr>
             <th>ID</th>
@@ -132,7 +132,7 @@
                     echo '<td>'; 
                     echo '<form class="btn-eliminar" method="post" action="eliminar_registro.php">';
                     echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
-                    echo '<input class="btn-eliminar-submit" type="submit" value="Eliminar">';
+                    echo '<input class="buttom" type="submit" value="Eliminar">';
                     echo '</form>';
                     echo '</td>';
                     echo '</tr>';
@@ -156,7 +156,7 @@
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
                     <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php
 

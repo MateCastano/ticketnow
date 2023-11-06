@@ -2,7 +2,7 @@
     include("../public/conection.php"); 
     
 
-    
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $metodo_pago = $_POST["metodo_pago"];
         $tipo_entrada = $_POST["tipo_entrada"];
         $cantidad_entradas = $_POST["cantidad_entradas"];
@@ -27,5 +27,5 @@
         } else {
             echo "Sector agotado, por favor elija otro sector.";
         }
-    
+    }
 ?>

@@ -28,7 +28,7 @@
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
                     <li><a href="../public/nosotros.php">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php 
                         session_start();
@@ -47,16 +47,16 @@
     <div class="nosotros">
         <img src="../images/nosotros.jpg" alt="imagen">
         <p>
-            Somos un una empresa de venta de <strong>tickets de recitales y eventos masivos</strong> que se 
-            relizan en Argentina.
+            Somos una empresa de venta de <strong>tickets de recitales y eventos masivos</strong> que se 
+            realizan en Argentina.
             <br><br>Nuestro objetivo principal es brindarle un servicio <strong>rapido, 
-            claro y eficiente</strong>s a nuestros clientes, ya sean para las <strong>empresas</strong>
+            claro y eficiente</strong>s a nuestros clientes, ya sea para las <strong>empresas</strong>
             que organizan los eventos y confian en nosotros para la venta de las entradas de los mismos 
-            y a los <strong>usuarios</strong> que que realizan la compra de los tickets por medio de 
+            y para los <strong>usuarios</strong> que realizan la compra de los tickets por medio de 
             nuestro sitio web.
-            <br><br>Ante cualquier duda contactense mediante el <strong>formulario de contacto</strong> para realizar una consulta, ya sea
-            por propuestas laborales o problemas con el sitio web.
-            <br><br>Un saludo y ¡disfruten de toda los <strong>increibles recitales</strong> y <strong>eventos</strong> que tenemos en nuestro catalogo! 
+            <br><br>Ante cualquier duda, contactese mediante el <strong>formulario de contacto</strong> para realizar una consulta, ya sea
+            por propuestas laborales o por problemas con el sitio web.
+            <br><br>Un saludo y ¡disfruten de todos los <strong>increibles recitales</strong> y <strong>eventos</strong> que tenemos en nuestro catalogo! 
         </p>                
     </div>
         
@@ -65,8 +65,8 @@
         <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php
 

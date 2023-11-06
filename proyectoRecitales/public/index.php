@@ -28,7 +28,7 @@
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
                     <li><a href="../public/nosotros.php">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php 
                         session_start();
@@ -76,8 +76,8 @@
         <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php
 

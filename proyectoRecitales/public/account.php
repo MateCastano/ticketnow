@@ -22,8 +22,8 @@
             <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php 
 
@@ -39,75 +39,68 @@
     </header>     
     <!-- Datos de la cuenta -->
     <div class="account-data">
-            <h3>MI CUENTA</h3>
-                <u><b>NOMBRE</b></u>
-                <?php
-                echo $_SESSION['nombre'] . " ";
-                ?>
-                <br>
-                <br><u><b>APELLIDO:</b></u>
-                <?php
-                echo $_SESSION['apellido'] . " ";
-                ?>
-                <br>
-                <br><u><b>USUARIO:</b></u>
-                <?php
-                echo $_SESSION['username'] . " ";
-                ?>
-                <br>
-                <br><u><b>EMAIL:</b></u>
-                <?php
-                echo $_SESSION['email'] . " ";
-                ?>
-                <br>
-                <br><u><b>MEMBRESIA:</b></u>
-                <?php
-                echo $_SESSION['membresia'] . " ";
-                ?>
-            <br>
-            <br>
-            </b><button><a href="../public/logout.php"><b>Logout</b></a></button>
-        </div>
+        <h2>MI CUENTA</h2>
+        <div class="secciones">
+                <div class="seccion">   
+                    <h3>NOMBRE:</h3>
+                    <h3>APELLIDO:</h3>
+                    <h3>NOMBRE DE USUARIO:</h3>
+                    <h3>EMAIL:</h3>
+                    <h3>MEMBRESIA:</h3>
+                </div>
+                <div class="seccion">
+                    <br><?php echo  $_SESSION['nombre']?>
+                    <br><br><?php echo $_SESSION['apellido']?>
+                    <br><br><?php echo $_SESSION['username']?>
+                    <br><br><?php echo $_SESSION['email']?>
+                    <br><br><?php echo $_SESSION['membresia']?>
+                </div>
+            </div>  
+        <a href="../public/logout.php"><button class="logout-button">Logout</button></a>
+    </div>
         <!-- Datos de las entradas asociadasa la cuenta -->
-        <h2>Mis entradas</h2>
+        <br><h2>Mis entradas</h2><br>
             <div class="recitales">
-                <?php
-                    include("../public/conection.php");
-                    $id = $_SESSION['id'];
+            <?php
+                include("../public/conection.php");
+                $id = $_SESSION['id'];
 
-                    $consulta = mysqli_query($conection, "SELECT * FROM entrada WHERE usuario_id = $id");
+                $consulta = mysqli_query($conection, "SELECT * FROM entrada WHERE usuario_id = $id");
 
-                    if($consulta->num_rows > 0)
+                if($consulta->num_rows > 0)
+                {
+                    while($entrada = mysqli_fetch_assoc($consulta)) // Obtiene cada entrada
                     {
-                        while($entrada = mysqli_fetch_assoc($consulta)) // Obtiene cada entrada
-                        {
-                            $recital_id = $entrada['recital_id'];
-                            $consulta_2 = mysqli_query($conection, "SELECT * FROM recital WHERE id = $recital_id");
+                        $recital_id = $entrada['recital_id'];
+                        $consulta_2 = mysqli_query($conection, "SELECT * FROM recital WHERE id = $recital_id");
 
-                            $recital = mysqli_fetch_array($consulta_2);
-                            $estadio_id = $recital['estadio_id'];
-                            $consulta_3 = mysqli_query($conection, "SELECT * FROM estadio WHERE id = $estadio_id");
-                            $estadio = mysqli_fetch_array($consulta_3);
-                            echo '<div class="recital">
-                            <h3>'. $recital["artista"]. '</h3>
-                            <img src="../images/' . $recital["imagen_publicidad"] . '" alt="Imagen">
-                            <b><a href="#' . $entrada["id"] . '">Ver datos</a></b>
-                            </div>';
-                        }
+                        $recital = mysqli_fetch_array($consulta_2);
+                        $estadio_id = $recital['estadio_id'];
+                        $consulta_3 = mysqli_query($conection, "SELECT * FROM estadio WHERE id = $estadio_id");
+                        $estadio = mysqli_fetch_array($consulta_3);
+                        echo '<div class="recital">
+                        <h3>'. $recital["artista"]. '</h3>
+                        <img src="../images/' . $recital["imagen_publicidad"] . '" alt="Imagen">
+                        <b><a href="#' . $entrada["id"] . '">Ver datos</a></b>
+                        </div>';
                     }
-                    else
-                    {
-                        echo '<p class="">Usted aun no ha comprado entradas</p>';
-                    }
-                ?>         
-        </div>       
+                }
+                else
+                {
+                    echo '<div></div>
+                        <div class="recitales-container">
+                            <p>Usted aun no ha comprado entradas</p>
+                        </div>';
+                }
+            ?>
+        </div>
         <footer class="footer">
         <div class="footer-links">
         <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/nostros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
                     <?php
 
@@ -122,7 +115,7 @@
         </nav>
         </div>
 
-    </footer>
+        </footer>
     
-</body>
+    </body>
 </html>

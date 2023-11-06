@@ -10,7 +10,6 @@
     <title>TicketNow</title>
 
 </head>
-
 <body>
 
     <header class="header">
@@ -22,20 +21,20 @@
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
                     <li><a href="../public/nosotros.php">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/login.php">Mi cuenta</a></li>
                 </ul>
             </nav>        
     </header>
     <main class="main">
         <form class="formulario" action="login-verification.php" method="post">
-            <h2>Inicia sesion</h2>
-            <br><label>Email:</label><br/>
-                <br><input type="email" name="email" required  class="text"/></br>
-            <br/><label>Contraseña:</label><br/>
-                <br><input type="password" name="password" maxlength="30" required class="text"/></br>
+            <h2>Ingrese los datos de su cuenta</h2>
+            <h3>Email:</h3>
+                <input type="email" name="email" required  class="text"/></br>
+            <br/><h3>Contraseña:</h3>
+                <input type="password" name="password" maxlength="30" required class="text"/>
             <br>
-            <input class="buttom" type="submit" value="Log-in"/>
+            <br>    <input class="buttom" type="submit" value="Iniciar sesion"/>
                 <p>¿Todavia no tenes cuenta? Registrate aqui</p>
             <a href="../public/register.php" class="registerButtom">Register</a>	
         </form>
