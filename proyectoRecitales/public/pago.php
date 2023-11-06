@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,9 +12,13 @@
 
     <title>TicketNow</title>
 
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+
 </head>
 
 <body>
+   
 
     <header class="header">
             <a class="header-logo" href="../public/index.php">
@@ -58,23 +65,58 @@
                 <p>Cargo por servicio: $ <?php echo $cargo_servicio; ?></p>
                 <p>TOTAL: $<?php echo $total; ?></p>
 
+                <?php
+
+                require '../vendor/autoload.php';
+                MercadoPago\SDK::setAccessToken('TEST-40307714998932-110320-e49179705ca7715108b4425be2effec9-210993591');
+
+                $preference = new MercadoPago\Preference();
+
+                $item = new MercadoPago\Item();
+
+                $item->id = '0001';
+                $item->title = 'Entrada/s sector: ' . $tipo_entrada;
+                $item->quantity =  1;
+                $item->unit_price =  $total;
+                $item->currency_id = "ARS";
+
+                $preference->items = array ($item);
                 
-                <h2>Selecciona tu método de pago</h2>
-                <form action="../public/procesar_pago.php" method="post">
-                    <label for="metodo_pago">Método de Pago:</label>
-                    <input type="hidden" name="tipo_entrada" value="<?php echo $tipo_entrada; ?>">
-                    <input type="hidden" name="cantidad_entradas" value="<?php echo $cantidad_entradas; ?>">
-                    <input type="hidden" name="precio" value="<?php echo $precio; ?>">
-                    <input type="hidden" name="estadio_id" value="<?php echo $estadio_id; ?>">
-                    <select name="metodo_pago" id="metodo_pago">
-                        <option value="tarjeta">Tarjeta de Crédito</option>
-                        <option value="paypal">PayPal</option>
-                        
-                    </select>
-                    <button type="submit">Confirmar Compra</button>
-                </form>
+
+                $preference->back_urls = array(
+                    "success" => "http://localhost/proyectoRecitales/public/procesar_pago.php",
+                    "failure" => "../pago.php"
+
+
+                );
+
+                $preference->auto_return = "approved";
+                $preference->binary_mode = true;
+
+                $preference->save();
+
+
+
+?>
+                
             </div>
 
+            <div class="checkout-btn"></div>
+    <script>
+                const mp = new MercadoPago('TEST-99961a6f-9c1c-49cb-8790-cb90bbe3bbc5', {
+            locale: 'es-AR',  // Reemplazar ; por ,
+        });
+
+        mp.checkout({
+            preference: {
+                id: '<?php echo $preference->id; ?>'
+            },
+            render: {
+                container: '.checkout-btn',
+                label: 'Pagar con MP'
+            }
+        });
+    </script>
             
         <?php
         }else if (isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador'){
