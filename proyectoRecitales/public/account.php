@@ -49,17 +49,19 @@
                     <h3>MEMBRESIA:</h3>
                 </div>
                 <div class="seccion">
-                    <br><?php echo  $_SESSION['nombre']?>
-                    <br><br><?php echo $_SESSION['apellido']?>
-                    <br><br><?php echo $_SESSION['username']?>
-                    <br><br><?php echo $_SESSION['email']?>
-                    <br><br><?php echo $_SESSION['membresia']?>
+                    <?php 
+                        echo  "<h3 class='dato'>".$_SESSION['nombre']."</h3>";
+                        echo  "<h3 class='dato'>".$_SESSION['apellido']."</h3>";
+                        echo  "<h3 class='dato'>".$_SESSION['username']."</h3>";
+                        echo  "<h3 class='dato'>".$_SESSION['email']."</h3>";
+                        echo  "<h3 class='dato'>".$_SESSION['membresia']."</h3>";
+                        ?>
                 </div>
             </div>  
         <a href="../public/logout.php"><button class="logout-button">Logout</button></a>
     </div>
         <!-- Datos de las entradas asociadasa la cuenta -->
-        <br><h2>Mis entradas</h2><br>
+        <br><h2 class='mis-entradas'>Mis entradas</h2><br>
             <div class="recitales">
             <?php
                 include("../public/conection.php");

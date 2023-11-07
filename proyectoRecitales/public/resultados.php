@@ -43,22 +43,47 @@
                 </ul>
             </nav>        
     </header>
+    <main class="main-buscador">
+    <form class ="form-buscador" action="../public/resultados.php" method="GET">
+            
+            <input class="buscador" type="text" name="busqueda" placeholder="Busca tu artista favorito aqui">
+        </form>
 
     <div class="busqueda">
         <?php
             include('../public/conection.php');
-            
+                
             $busqueda = $_GET['busqueda'];
-            echo "<h3>Su busqueda:  </h3>
-                    </p>". $busqueda ."</p>";
+            echo "<h2>Su busqueda: ". $busqueda ."</h2>";
 
             $consulta = mysqli_query($conection, "SELECT * FROM recital where recital.artista like '%$busqueda%'");
+            $rows = mysqli_num_rows($consulta);
+
+            echo "<p>Cantidad de resultados: ". $rows ."</p>";           
         ?>
     </div>
-    <div class="recitales">
-    <p>Resultados de la busqueda: </p>                    
-        <div class="recital">
+    </main>
+    <div class="recital">                  
+        <div class="recitales">
+        <?php
+            if ($consulta->num_rows > 0) {
+                while ($row = mysqli_fetch_assoc($consulta)) {
+                    echo '<div class="recital">
+                        <h3>'. $row["artista"]. '</h3>
+                        <img src="../images/' . $row["imagen_publicidad"] . '" alt="Imagen">
 
+                        <b><a href="compra.php?dato=' . $row["id"] . '">Comprar</a></b>
+                    </div>';
+                }
+            }
+            else
+            {
+                echo '<div></div>
+                        <div class="recitales-container">
+                            <p class="no-resultados">No existen artistas para esta busqueda</p>
+                        </div>';
+            } 
+            ?>
         </div>
     </div>
     <footer class="footer">

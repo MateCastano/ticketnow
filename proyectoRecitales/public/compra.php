@@ -53,7 +53,9 @@
                 echo '<h2>' . $resultado["artista"] . '</h2>';
                 echo '<img src="../images/' . $resultado["imagen_publicidad"] . '" alt="Imagen">';
                 echo '</div>';
-        
+                
+                echo '<div class="center"> a </div>';
+
                 echo '<div class="right">';
                 echo '<h2>Información general</h2>';
                 echo '<p>Fecha: <span>' . $resultado["fecha"] . '</span></p>';

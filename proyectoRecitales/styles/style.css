@@ -265,6 +265,7 @@ h2{
     margin: 0;
     letter-spacing: .1rem;
     text-align: center;
+    text-decoration: underline;
 }
 .recital h3{
     font-size: 1.4rem;
@@ -275,7 +276,6 @@ h2{
 .recitales p{
     font-size: 1.5rem;
     font-weight: bold;
-    text-decoration: underline;
 }
 .recital img {
     width: 100%;
@@ -283,6 +283,10 @@ h2{
     border-radius: 1rem;
     object-fit: cover;
     border: 3px solid #f58905;
+}
+.recitales .no-resultados{
+    font-weight: lighter;
+    color: #E82323;
 }
 .recitales-container {
     display: inline;
@@ -309,24 +313,33 @@ h2{
 /* RESULTADOS */
 
 .busqueda {
-    background-color: #f59f34;
-    text-align: center;
+    /* background-color: #f59f34; */
+    text-align: center;   
     padding: 0rem;
     padding-bottom: 1rem;
     font-size: 1rem;
     margin: 1rem auto;
-    width: 25%;
+    width: 20%;
     height: auto;
-    border: 2px solid #000;
-    border-radius: 1rem;
-
+    display: block;
+    /* border: 2px solid #000; */
+    /* border-radius: 1rem; */
+}
+.busqueda h2{
+    font-size: 1.4rem;
+    text-transform: none;
+    margin: 0;
+    letter-spacing: .1rem;
+    text-align: center;
+    text-decoration: none;
 }
 .busqueda h3{
     color: #000;
     padding: 1rem;
+    text-transform: none;
 }
 .busqueda p{
-    margin: 0%;
+    padding-top: 0.3    rem;
 }
 
 /* ACCOUNT */
@@ -345,16 +358,26 @@ h2{
     border: 2px solid #000;
     border-radius: 1rem;
 }
-
+.mis-entradas{
+    color: #000;
+    padding: 1rem;
+    text-decoration: none;
+    border-bottom: 2px solid;
+}
 .account-data h2{
 
     color: #000;
     padding: 1rem;
+    text-decoration: none;
+    border-bottom: 2px solid;
+    text-align: center;
 }
 .account-data h3{
 
     color: #000;
-    padding: 1rem;
+}
+.account-data .dato{
+    font-weight: 100;
 }
 .secciones{
     display: flex;
@@ -534,15 +557,20 @@ h2{
 .info-compra .right h2{
     font-size: 2rem;
     font-weight: normal;
-    color: #616161;
+    text-decoration: none;
     border-bottom: 1px solid #000;
-
-    
+    padding-bottom: 1rem;   
+}
+.info-compra .center {
+    text-align: center;
+    margin-left: 12rem;
+    color: transparent;
 }
 .info-compra .right {
     margin: 10rem 3rem;
     font-size: 1.5rem;
     font-weight: bold;
+    text-align: left;
 }
 .info-compra .right span{
     font-weight: normal;
@@ -551,9 +579,12 @@ h2{
 .info-compra .left h2{
     
     font-size: 2rem;
-    border-bottom: 3px solid #616161;
+    border-bottom: 1px solid #000000;
     text-transform: uppercase;
     margin: 2rem;
+    text-decoration: none;
+    padding-bottom: 1rem;
+    text-align: left;
 }
 .info-compra .left{
     margin: 2rem;
@@ -575,6 +606,7 @@ h2{
     padding: 0;
     text-align: center;
     text-transform: uppercase;
+    border-radius: 0.5rem;
 }
 .info-precio h3{
     background-color: gray;
@@ -590,6 +622,7 @@ h2{
     padding: 10px 20px;
     text-transform: uppercase;
     margin: 4% 4%;
+    border-radius: 0.5rem;
 }
 
 
