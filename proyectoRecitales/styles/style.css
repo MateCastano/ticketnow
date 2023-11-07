@@ -19,14 +19,17 @@ textarea{
     padding: 1rem;
     border-radius: 1rem;
 }
-
+.mensaje-error{
+    color: #E82323;
+    font-weight: bold;
+}
 .text{
     font-size: 13px;
     border-radius: 4px;
     line-height: 1.5;
     padding: 5px 10px;
     transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
-    border: 2px solid #dee1e2;
+    border: 2px solid #999999;
     color: rgb(14, 14, 16);
     background: #dee1e2;
     display: inline;
@@ -214,6 +217,7 @@ li{
 label{
     margin: 1rem;
 }
+
 /*BUSCADOR*/
 
 .main-buscador{
@@ -268,6 +272,11 @@ h2{
     margin: 0;
     text-align: center;
 }
+.recitales p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: underline;
+}
 .recital img {
     width: 100%;
     height: 100%;
@@ -297,6 +306,29 @@ h2{
     padding: 10px;
 }
 
+/* RESULTADOS */
+
+.busqueda {
+    background-color: #f59f34;
+    text-align: center;
+    padding: 0rem;
+    padding-bottom: 1rem;
+    font-size: 1rem;
+    margin: 1rem auto;
+    width: 25%;
+    height: auto;
+    border: 2px solid #000;
+    border-radius: 1rem;
+
+}
+.busqueda h3{
+    color: #000;
+    padding: 1rem;
+}
+.busqueda p{
+    margin: 0%;
+}
+
 /* ACCOUNT */
 
 .data{
@@ -315,6 +347,11 @@ h2{
 }
 
 .account-data h2{
+
+    color: #000;
+    padding: 1rem;
+}
+.account-data h3{
 
     color: #000;
     padding: 1rem;
@@ -506,7 +543,6 @@ h2{
     margin: 10rem 3rem;
     font-size: 1.5rem;
     font-weight: bold;
-
 }
 .info-compra .right span{
     font-weight: normal;
@@ -517,15 +553,18 @@ h2{
     font-size: 2rem;
     border-bottom: 3px solid #616161;
     text-transform: uppercase;
+    margin: 2rem;
 }
 .info-compra .left{
     margin: 2rem;
-    width: 50%;
+    width: 40%;
 
 }
 .info-compra .left img{
    
     width: -webkit-fill-available;
+    border: 3px solid #f58905;
+    border-radius: 1rem;
 }
 .info-precio{
     

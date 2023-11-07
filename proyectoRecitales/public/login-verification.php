@@ -23,29 +23,23 @@ include("../public/conection.php");
             $_SESSION["loggedIn"] = $usuario[true];
             $_SESSION["id"] = $usuario["id"];  
 
-             if($usuario["membresia"] == "Administrador")
+            if($usuario["membresia"] == "Administrador")
                 {
                     Header("Location: ../private/admin.php");
                 }
-             else
-             {
-                Header("Location: ../public/index.php");
-                
-                    echo '<h1 style="color:green;text-align:center;margin-top:12px">User login !</h1>';
-                       
+            else
+            {
+                Header("Location: ../public/index.php");     
             }
-            }
+            }   
         else
         {
-            include("../public/login.php");
+            header("Location: ../public/login.php?error-password=true");
         }
     }
     else
     {
-        echo '<h1 style="color:red;text-align:center;margin-top:12px">Este mail no está registrado</h1>';
-        include("../public/login.php");
-           
-        
+        header("Location: ../public/login.php?error-mail=true");  
     }
 
     mysqli_free_result($resultado);

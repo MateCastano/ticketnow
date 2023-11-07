@@ -11,7 +11,7 @@
     
     if(mysqli_num_rows($consulta) > 0)
     {
-        Header("Location: ../public/register.php ");
+        Header("Location: ../public/register.php?error-mail=true");
     }
     else
     {
@@ -21,4 +21,5 @@
         Header("Location: ../public/login.php ");
     }
     mysqli_close($conection);
+    mysqli_close($consulta);
 ?>

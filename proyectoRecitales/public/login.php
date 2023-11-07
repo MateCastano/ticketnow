@@ -34,7 +34,20 @@
             <br/><h3>Contraseña:</h3>
                 <input type="password" name="password" maxlength="30" required class="text"/>
             <br>
-            <br>    <input class="buttom" type="submit" value="Iniciar sesion"/>
+            <br>
+                <div class="mensaje-error">
+                    <?php 
+                        if(isset($_GET['error-password']) && $_GET['error-password'] == 'true')
+                        {
+                            echo '<center><p>¡Sus datos no son correctos!</p></center>';
+                        }
+                        else if(isset($_GET['error-mail']) && $_GET['error-mail'] == 'true')
+                        {
+                            echo '<center><p>¡Este mail no es correcto!</p></center>';
+                        }
+                    ?>
+                </div>  
+                <input class="buttom" type="submit" value="Iniciar sesion"/>
                 <p>¿Todavia no tenes cuenta? Registrate aqui</p>
             <a href="../public/register.php" class="registerButtom">Register</a>	
         </form>

@@ -18,25 +18,33 @@
                 <img href="../public/index.php" src="../images/logo.png" alt="inicio">
                 </a>
             
-            <nav class="navbar">
+                <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php 
+                        session_start();
+
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
                 </ul>
-            </nav>        
+            </nav>       
     </header>
 
     <main>
     <?php
         require("../public/conection.php");
 
-        
             $valor = $_GET['dato'];
-        
-            
             $consulta = mysqli_query($conection, "SELECT * FROM recital WHERE id = '$valor'");
+
             if (mysqli_num_rows($consulta) > 0) {
                 $resultado = mysqli_fetch_assoc($consulta);
         
@@ -124,27 +132,31 @@
             } else {
                 echo 'No se encontraron resultados para el ID proporcionado.';
                 }
-        
-            
             mysqli_close($conection);
 
     ?>
-
-
 
     </main>
     
     <footer class="footer">
         <div class="footer-links">
-            <ul>
+        <nav class="navbar">
+                <ul>
+                    <li><a href="../public/index.php">Inicio</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
+                    <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php 
 
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-                
-                
-
-            </ul>
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
+                </ul>
+            </nav>
         </div>
 
     </footer>

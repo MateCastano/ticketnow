@@ -25,14 +25,24 @@
                 <img href="../public/index.php" src="../images/logo.png" alt="inicio">
                 </a>
             
-            <nav class="navbar">
+                <nav class="navbar">
                 <ul>
                     <li><a href="../public/index.php">Inicio</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
                     <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php 
+                        session_start();
+
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                        echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';
+                            
+                        }
+                        
+                    ?>
                 </ul>
-            </nav>        
+            </nav>       
     </header>
 
 
@@ -40,7 +50,6 @@
 
     <?php
         include("../public/conection.php"); 
-        session_start();
 
         if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Suscriptor')
         {
@@ -102,9 +111,6 @@
 
                 $preference->save();
                 ?>
-            
-
-                
                     <div class="checkout-btn"></div>
                     <script>
                                 const mp = new MercadoPago('TEST-99961a6f-9c1c-49cb-8790-cb90bbe3bbc5', {
@@ -122,22 +128,20 @@
                         });
                     </script>
             <?php    
-            } else {
+            } 
+            else 
+            {
 
-                echo '<h1 style="color:red;text-align:center;margin-top:12px;text-transform:uppercase">Sector agotado, por favor elija otro sector.</h1>';
-                
+                header("Location: ../public/compra.php?error-sector=true");
             }
-                    
-            
-                
-        
-            
-        
-        }else if (isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador'){
-
-            echo '<h1 style="color:red;text-align:center;margin-top:12px">No puedes realizar esta acción como administrador. Logeate como usuario.</h1>';
-        }else{
-            echo '<h1 style="color:red;text-align:center;margin-top:12px">Debes estar logeado para comprar!</h1>';
+        }
+        else if (isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+        {
+            header("Location: ../public/compra.php?error-admin=true");
+        }
+        else
+        {
+            header("Location: ../public/compra.php?error-sesion=true");
         }
         ?>
 
@@ -145,15 +149,22 @@
     
     <footer class="footer">
         <div class="footer-links">
-            <ul>
+        <nav class="navbar">
+                <ul>
+                    <li><a href="../public/index.php">Inicio</a></li>
+                    <li><a href="../public/nosotros.php">Nosotros</a></li>
+                    <li><a href="../public/contacto.php">Contacto</a></li>
+                    <li><a href="../public/account-verification.php">Mi cuenta</a></li>
+                    <?php 
 
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Contacto</a></li>
-                
-                
-
-            </ul>
+                        if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
+                        {
+                            echo '<li><a href="../private/admin.php">Panel de Admin</a></li>';  
+                        }
+                        
+                    ?>
+                </ul>
+            </nav>
         </div>
 
     </footer>

@@ -46,7 +46,7 @@
 
     <main class="main-buscador">
 
-        <form class ="form-buscador" action="" method="GET">
+        <form class ="form-buscador" action="../public/resultados.php" method="GET">
             
             <input class="buscador" type="text" name="busqueda" placeholder="Busca tu artista favorito aqui">
         </form>
