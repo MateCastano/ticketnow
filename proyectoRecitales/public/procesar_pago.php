@@ -1,7 +1,21 @@
 <?php
     include("../public/conection.php"); 
-    
+   
+
     echo "Compra realizada con exito!";
+
+
+    $payment = $_GET['payment_id'];
+    $status = $_GET['status'];
+    $payment_type = $_GET['payment_type'];
+    $order_id = $_GET['merchant_order_id'];
+
+    echo $payment . '<br>';
+    echo $status .'<br>';
+    echo $payment_type . '<br>';
+    echo $order_id .'<br>';
+
+
     /* ($_SERVER["REQUEST_METHOD"] == "POST") {
         $metodo_pago = $_POST["metodo_pago"];
         $tipo_entrada = $_POST["tipo_entrada"];
