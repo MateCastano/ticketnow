@@ -49,14 +49,14 @@
         <p>
             Somos una empresa de venta de <strong>tickets de recitales y eventos masivos</strong> que se 
             realizan en Argentina.
-            <br><br>Nuestro objetivo principal es brindarle un servicio <strong>rapido, 
+            <br><br>Nuestro objetivo principal es brindarle un servicio <strong>rápido, 
             claro y eficiente</strong>s a nuestros clientes, ya sea para las <strong>empresas</strong>
-            que organizan los eventos y confian en nosotros para la venta de las entradas de los mismos 
+            que organizan los eventos y confían en nosotros para la venta de las entradas de los mismos 
             y para los <strong>usuarios</strong> que realizan la compra de los tickets por medio de 
             nuestro sitio web.
-            <br><br>Ante cualquier duda, contactese mediante el <strong>formulario de contacto</strong> para realizar una consulta, ya sea
+            <br><br>Ante cualquier duda, contáctese  mediante el <strong>formulario de contacto</strong> para realizar una consulta, ya sea
             por propuestas laborales o por problemas con el sitio web.
-            <br><br>Un saludo y ¡disfruten de todos los <strong>increibles recitales</strong> y <strong>eventos</strong> que tenemos en nuestro catalogo! 
+            <br><br>Un saludo y ¡disfruten de todos los <strong>increíbles recitales</strong> y <strong>eventos</strong> que tenemos en nuestro catalogo! 
         </p>                
     </div>
         

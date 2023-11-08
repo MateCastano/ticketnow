@@ -44,10 +44,10 @@
             </nav>        
     </header>
     <main class="main-buscador">
-    <form class ="form-buscador" action="../public/resultados.php" method="GET">
-            
-            <input class="buscador" type="text" name="busqueda" placeholder="Busca tu artista favorito aqui">
-        </form>
+
+    <form class ="form-buscador" action="../public/resultados.php" method="GET">         
+        <input class="buscador" type="text" name="busqueda" placeholder="Busca tu artista favorito aqui">
+    </form>
 
     <div class="busqueda">
         <?php
@@ -80,7 +80,7 @@
             {
                 echo '<div></div>
                         <div class="recitales-container">
-                            <p class="no-resultados">No existen artistas para esta busqueda</p>
+                            <p class="no-resultados">No existen artistas para esta búsqueda</p>
                         </div>';
             } 
             ?>

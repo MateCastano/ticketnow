@@ -60,12 +60,12 @@
                 echo '<h2>Información general</h2>';
                 echo '<p>Fecha: <span>' . $resultado["fecha"] . '</span></p>';
                 echo '<p>Hora: <span>' . $resultado["hora"] . '</span></p>';
-        
                 
-                $consultaEstadio = mysqli_query($conection, "SELECT nombre FROM estadio WHERE id = '" . $resultado['estadio_id'] . "'");
-                $nombreEstadio = mysqli_fetch_assoc($consultaEstadio);
+                $consultaEstadio = mysqli_query($conection, "SELECT * FROM estadio WHERE id = '" . $resultado['estadio_id'] . "'");
+                $estadio = mysqli_fetch_assoc($consultaEstadio);
         
-                echo '<p>Estadio: <span>' . $nombreEstadio["nombre"] . '</span></p>';
+                echo '<p>Estadio: <span>' . $estadio["nombre"] . '</span></p>';
+                echo '<p>Direccion: <span>' . $estadio["direccion"] . '</span></p>';
                 echo '</div>';
                 echo '</div>';
         
@@ -123,7 +123,7 @@
                 echo '<form class="form-entrada" method="post" action="../public/pago.php">';
                 echo '<label for="cantidad_entradas">Cantidad:</label>';
                 echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
-                echo '<input type="hidden" name="tipo_entrada" value="platea">';
+                echo '<input type="hidden" name="tipo_entrada" value="Platea">';
                 echo '<input type="hidden" name="precio" value="' . $resultadoPlatea . '">';
                 echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';
 

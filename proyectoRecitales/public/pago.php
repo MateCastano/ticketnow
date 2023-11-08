@@ -53,33 +53,37 @@
 
         if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Suscriptor')
         {
-            
             $tipo_entrada = $_POST['tipo_entrada'];
             $cantidad_entradas = $_POST['cantidad_entradas'];
             $precio = ($_POST['precio'] * $cantidad_entradas) ;
             $cargo_servicio = $precio * 0.1;
             $total = $precio + $cargo_servicio;
             $estadio_id = $_POST['estadio_id'];
-
-            
-
-            ?>  
+        ?>
             <div class="pago">
-
-            
-                <h1>Detalle de la Compra</h1>
-                <p>Tipo de Entrada: <?php echo $tipo_entrada; ?></p>
-                <p>Cantidad de Entradas: <?php echo $cantidad_entradas; ?></p>
-                <p>Precio total de entradas: $ <?php echo $precio; ?></p>
-                <p>Cargo por servicio: $ <?php echo $cargo_servicio; ?></p>
-                <p>TOTAL: $<?php echo $total; ?></p>
-
+            <h2>Detalle de la compra</h2>
+            <div class="secciones">   
+                <div class="seccion">
+                    <h3>Tipo de Entrada: </h3>
+                    <h3>Cantidad de Entradas: </h3>
+                    <h3>Precio total de entradas:  </h3>
+                    <h3>Cargo por servicio:  </h3>
+                    <br>
+                    <h3>TOTAL: </h3>
+                </div>
+                <div class = "seccion">
+                    <h3 class="dato"><?php echo $tipo_entrada; ?></h3>
+                    <h3 class="dato"><?php echo $cantidad_entradas; ?></h3>
+                    <h3 class="dato">$<?php echo $precio; ?></h3>
+                    <h3 class="dato">$<?php echo $cargo_servicio; ?></h3>
+                    <br>
+                    <h3 class="dato">$<?php echo $total; ?></h3>
+                </div>
+            </div> 
                 <?php
 
             $consultaEstadio = mysqli_query($conection, "SELECT * FROM estadio WHERE id = '" . $estadio_id . "'");
             $estadio = mysqli_fetch_assoc($consultaEstadio);
-
-
 
             if ($estadio[$tipo_entrada] >= $cantidad_entradas) {
 
@@ -127,11 +131,11 @@
                             }
                         });
                     </script>
-            <?php    
+                </div>
+            <?php
             } 
             else 
             {
-
                 header("Location: ../public/compra.php?error-sector=true");
             }
         }

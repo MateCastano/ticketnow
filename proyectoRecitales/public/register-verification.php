@@ -18,7 +18,7 @@
         $consulta = mysqli_query($conection, "INSERT INTO usuarios (nombre, apellido, email, username, password, membresia) 
                                             VALUES('$name','$surname','$email', '$username', '$password', 'Suscriptor')");
         
-        Header("Location: ../public/login.php ");
+        Header("Location: ../public/login.php");
     }
     mysqli_close($conection);
     mysqli_close($consulta);

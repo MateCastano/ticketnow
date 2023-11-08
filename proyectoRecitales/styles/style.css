@@ -625,10 +625,26 @@ h2{
     border-radius: 0.5rem;
 }
 
-
 /* PAGO */ 
 
 .pago{
+    background-color: #f59f34;
     text-align: center;
+    padding: 0rem;
+    padding-bottom: 1rem;
     font-size: 1rem;
+    margin: 1rem auto;
+    width: 50rem;
+    border: 2px solid #000;
+    border-radius: 1rem;
+} 
+.pago h2{
+    color: #000;
+    padding: 1rem;
+    text-decoration: none;
+    border-bottom: 2px solid;
+    text-align: center;
+}
+.dato{
+    font-weight: 100;
 }
