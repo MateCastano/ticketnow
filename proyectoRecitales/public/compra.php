@@ -126,7 +126,7 @@
                 echo '<form class="form-entrada" method="post" action="../public/pago.php">';
                 echo '<label for="cantidad_entradas">Cantidad:</label>';
                 echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
-                echo '<input type="hidden" name="tipo_entrada" value="Platea">';
+                echo '<input type="hidden" name="tipo_entrada" value="platea">';
                 echo '<input type="hidden" name="recital_id" value="' . $valor . '">';
                 echo '<input type="hidden" name="precio" value="' . $resultadoPlatea . '">';
                 echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';

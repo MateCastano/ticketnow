@@ -10,11 +10,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $precio = $_POST['precio'];
 
     
-    $consultaEstadio = mysqli_query($conection, "SELECT id FROM estadio WHERE nombre = '$nombre_estadio'");
+    $consultaEstadio = mysqli_query($conection, "SELECT * FROM estadio WHERE nombre = '$nombre_estadio'");
     
     if ($consultaEstadio) {
         $estadio = mysqli_fetch_assoc($consultaEstadio);
         $estadio_id = $estadio['id'];
+
+
+        $platea = $estadio['platea'];
+        $campo = $estadio['campo'];
+        $vip = $estadio['vip'];
+
 
         // Manejar la subida de la imagen
         $imagen_publicidad = $_FILES['imagen_publicidad']['name'];
@@ -24,7 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (move_uploaded_file($imagen_temporal, $carpeta_destino)) {
             
             // Insertar datos en la tabla recital
-            $consulta = mysqli_query($conection, "INSERT INTO recital (artista, fecha, hora, estadio_id, imagen_publicidad, precio) VALUES ('$artista', '$fecha', '$hora', $estadio_id, '$imagen_publicidad','$precio')");
+
+            $consulta = mysqli_query($conection, "INSERT INTO recital (artista, fecha, hora, estadio_id, imagen_publicidad, precio, platea, campo, vip) VALUES ('$artista', '$fecha', '$hora', $estadio_id, '$imagen_publicidad','$precio','$platea','$campo','$vip')");
 
 
             

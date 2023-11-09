@@ -89,10 +89,11 @@
             </div> 
                 <?php
 
-            $consultaEstadio = mysqli_query($conection, "SELECT * FROM estadio WHERE id = '" . $estadio_id . "'");
-            $estadio = mysqli_fetch_assoc($consultaEstadio);
+            $consultaRecital = mysqli_query($conection, "SELECT * FROM recital WHERE id = '" . $recital_id . "'");
+            $recital = mysqli_fetch_assoc($consultaRecital);
+            
 
-            if ($estadio[$tipo_entrada] >= $cantidad_entradas) {
+            if ($recital[$tipo_entrada] >= $cantidad_entradas) {
                 
                 require '../vendor/autoload.php';
                 MercadoPago\SDK::setAccessToken('TEST-40307714998932-110320-e49179705ca7715108b4425be2effec9-210993591');
