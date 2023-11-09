@@ -55,6 +55,7 @@
                         echo  "<h3 class='dato'>".$_SESSION['username']."</h3>";
                         echo  "<h3 class='dato'>".$_SESSION['email']."</h3>";
                         echo  "<h3 class='dato'>".$_SESSION['membresia']."</h3>";
+                        
                         ?>
                 </div>
             </div>  

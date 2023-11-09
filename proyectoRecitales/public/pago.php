@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -43,12 +40,15 @@
                     ?>
                 </ul>
             </nav>       
+            
     </header>
 
 
     <main>
-
+    
     <?php
+
+    
         include("../public/conection.php"); 
 
         if(isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Suscriptor')
@@ -58,7 +58,14 @@
             $precio = ($_POST['precio'] * $cantidad_entradas) ;
             $cargo_servicio = $precio * 0.1;
             $total = $precio + $cargo_servicio;
+            $precioUnidad =  $_POST['precio'] * 1.1;
             $estadio_id = $_POST['estadio_id'];
+            $recital_id = $_POST['recital_id'];
+
+            
+
+
+
         ?>
             <div class="pago">
             <h2>Detalle de la compra</h2>
@@ -86,7 +93,7 @@
             $estadio = mysqli_fetch_assoc($consultaEstadio);
 
             if ($estadio[$tipo_entrada] >= $cantidad_entradas) {
-
+                
                 require '../vendor/autoload.php';
                 MercadoPago\SDK::setAccessToken('TEST-40307714998932-110320-e49179705ca7715108b4425be2effec9-210993591');
 
@@ -96,9 +103,12 @@
 
                 $item->id = '0001';
                 $item->title = 'Entrada/s sector: ' . $tipo_entrada;
-                $item->quantity =  1;
+                $item->quantity = 1;
                 $item->unit_price =  $total;
                 $item->currency_id = "ARS";
+
+
+                
 
                 $preference->items = array ($item);
                 
@@ -114,6 +124,13 @@
                 $preference->binary_mode = true;
 
                 $preference->save();
+
+                $_SESSION['tipo_entrada'] = $tipo_entrada;
+                $_SESSION['cantidad_entradas'] = $cantidad_entradas;
+                $_SESSION['estadio_id'] = $estadio_id;
+                $_SESSION['precioEntrada'] = $precioUnidad;
+                $_SESSION['recital_id'] = $recital_id;
+                
                 ?>
                     <div class="checkout-btn"></div>
                     <script>
@@ -133,10 +150,12 @@
                     </script>
                 </div>
             <?php
-            } 
+            }
             else 
             {
+                
                 header("Location: ../public/compra.php?error-sector=true");
+                
             }
         }
         else if (isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')

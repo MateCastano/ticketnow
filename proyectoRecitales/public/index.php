@@ -14,6 +14,7 @@
 <?php include("../public/conection.php"); 
 
     $resultado = mysqli_query($conection, "SELECT * FROM recital");
+
     
 ?>
 
@@ -60,9 +61,10 @@
                     echo '<div class="recital">
                         <h3>'. $row["artista"]. '</h3>
                         <img src="../images/' . $row["imagen_publicidad"] . '" alt="Imagen">
-
-                        <b><a href="compra.php?dato=' . $row["id"] . '">Comprar</a></b>
+                        
+                        <b><a href="compra.php?dato=' .$row["id"]. '">Comprar</a></b>
                     </div>';
+                    
             
                 }
             } 

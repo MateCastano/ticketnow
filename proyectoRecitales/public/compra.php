@@ -41,8 +41,9 @@
     <main>
     <?php
         require("../public/conection.php");
-
+                        
             $valor = $_GET['dato'];
+            
             $consulta = mysqli_query($conection, "SELECT * FROM recital WHERE id = '$valor'");
 
             if (mysqli_num_rows($consulta) > 0) {
@@ -90,6 +91,7 @@
                 echo '<label for="cantidad_entradas">Cantidad:</label>';
                 echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
                 echo '<input type="hidden" name="tipo_entrada" value="vip">';
+                echo '<input type="hidden" name="recital_id" value="' . $valor . '">';
                 echo '<input type="hidden" name="precio" value="' . $resultadoVIP . '">';
                 echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';
                 
@@ -108,6 +110,7 @@
                 echo '<label for="cantidad_entradas">Cantidad:</label>';
                 echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
                 echo '<input type="hidden" name="tipo_entrada" value="campo">';
+                echo '<input type="hidden" name="recital_id" value="' . $valor . '">';
                 echo '<input type="hidden" name="precio" value="' . $resultadoCampo . '">';
                 echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';
 
@@ -124,6 +127,7 @@
                 echo '<label for="cantidad_entradas">Cantidad:</label>';
                 echo '<input type="number" id="cantidad_entradas" name="cantidad_entradas" min="1" max="3" value="1">';
                 echo '<input type="hidden" name="tipo_entrada" value="Platea">';
+                echo '<input type="hidden" name="recital_id" value="' . $valor . '">';
                 echo '<input type="hidden" name="precio" value="' . $resultadoPlatea . '">';
                 echo '<input type="hidden" name="estadio_id" value="' .$resultado['estadio_id'] . '">';
 
