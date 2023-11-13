@@ -52,9 +52,11 @@
 
             $entrada = mysqli_fetch_array($consultaEntrada);
             $id_recital = $entrada['recital_id'];
+            
 
             $consultaRecital = mysqli_query($conection, "SELECT * FROM recital where id = $id_recital");
             $recital = mysqli_fetch_array($consultaRecital);
+
 
             $id_estadio = $recital['estadio_id'];
             $consultaEstadio = mysqli_query($conection, "SELECT * FROM estadio where id = $id_estadio");
@@ -63,21 +65,32 @@
             <h2>Detalles de la entrada</h2>
             <div class="secciones">   
                 <div class="seccion">
+                    <h3>Nº Ticket: </h3>
                     <h3>Fecha: </h3>
                     <h3>Estadio: </h3>
                     <h3>Direccion: </h3>
                     <h3>Sector: </h3>
                     <h3>Horario: </h3>
                     <h3>Total: </h3>
+                    
                 </div>
                 <div class = "seccion">
+
+                    <h3 class="dato"># <?php echo $recital['id'] ?></h3>
                     <h3 class="dato"><?php echo $recital['fecha'] ?></h3>
                     <h3 class="dato"><?php echo $estadio['nombre'] ?></h3>
                     <h3 class="dato"><?php echo $estadio['direccion'] ?></h3>
                     <h3 class="dato"><?php echo $entrada['sector'] ?></h3>
                     <h3 class="dato"><?php echo $recital['hora'] ?></h3>
                     <h3 class="dato">$<?php echo $entrada['precio'] ?></h3>
+                    
+                    <?php 
+                echo '<img src="' . $entrada['ruta_qr'] . '" alt="Código QR de la entrada ' . $entrada['id'] . '">';
+                ?>
                 </div>
+
+                
+                
             </div> 
         </div>
     <footer class="footer">

@@ -10,7 +10,7 @@
 
     <title>TicketNow</title>
 
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="https://sdk.mercadopago.com/js/v2" locale="es"> </script>
 
 
 </head>

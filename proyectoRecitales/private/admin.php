@@ -107,8 +107,10 @@
             <!--<th>Imagen</th> PARA MOSTRAR LA IMAGEN EN EL REGISTRO--> 
             
             
+            
 
         </tr>
+
         <?php
             if ($resultado->num_rows > 0) {
                 
@@ -136,6 +138,14 @@
                     echo '<input class="buttom" type="submit" value="Eliminar">';
                     echo '</form>';
                     echo '</td>';
+                    
+
+                    echo '<td>';
+                    echo '<form class="btn-eliminar" method="post" action="editar_recital.php">';
+                    echo '<input type="hidden" name="id" value="' . $row['id'] . '">';
+                    echo '<input class="buttom" type="submit" value="Editar">';
+                    echo '</form>';
+                    echo '</td>';
                     echo '</tr>';
                     
                 }
@@ -145,9 +155,14 @@
                 
             } 
             ?>
+
+
     </table>
      
+  
 
+</body>
+</html>
         </div>
 
     </main>

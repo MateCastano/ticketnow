@@ -10,7 +10,7 @@
 
     <title>TicketNow</title>
 
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
+    <script src="https://sdk.mercadopago.com/js/v2" locale="es"> </script>
 
 
 </head>
@@ -34,28 +34,44 @@
             </nav>       
             
     </header>
-    <main>  
-                        
+    <main>                   
     <?php
+      
         include("../public/conection.php"); 
+        include("../phpqrcode/qrlib.php");
+
     
         session_start();
 
-        $payment = $_GET['payment_id'];
-        $status = $_GET['status'];
-        $payment_type = $_GET['payment_type'];
         
 
-        echo '<div class="compra-realizada">';
-        echo '<h3>Compra realizada con exito!</h3>';
+
+        $payment = $_GET['payment_id'];
         
+        $payment_type = $_GET['payment_type'];
+        
+        echo '<p>ID de la operación: <span>' . $payment . '</span></p>';
+        echo '<p>Estado: <span>Aprobado</span></p>';
+       
+        echo $payment_type . '<br>';
+       
+
+        
+        
+    
+
+        
+            
             $tipo_entrada = $_SESSION['tipo_entrada'];
             $cantidad_entradas = $_SESSION['cantidad_entradas'];
             $estadio_id = $_SESSION['estadio_id'];
             $precio = $_SESSION['precioEntrada'];
             $recital_id =  $_SESSION['recital_id'];
             $usuario_id = $_SESSION['id'];
- 
+            
+            
+            
+            
             $consultaRecital = mysqli_query($conection, "SELECT * FROM recital WHERE id = '" . $recital_id . "'");
             $recital = mysqli_fetch_assoc($consultaRecital);
     
@@ -72,41 +88,54 @@
                 $cont = 0;
                 while ($cont < $cantidad_entradas) {
                     $consulta = mysqli_query($conection, "INSERT INTO entrada (recital_id, usuario_id, precio, sector) VALUES ('$recital_id', '$usuario_id', '$precio','$tipo_entrada')");
+                
+                    if (!$consulta) {
+                        die("Error al insertar entrada en la base de datos: " . mysqli_error($conection));
+                    }
+                
+                    
+                    $nueva_entrada_id = mysqli_insert_id($conection);
+                
+                    
+                    $consulta_seleccion = mysqli_query($conection, "SELECT * FROM entrada WHERE id = '$nueva_entrada_id'");
+                
+                    if (!$consulta_seleccion) {
+                        die("Error al seleccionar entrada de la base de datos: " . mysqli_error($conection));
+                    }
+                
+                    $entrada = mysqli_fetch_assoc($consulta_seleccion);
+                
+                    $nueva_entrada_id = $entrada['id'];
+                    
+                    
+                    
+
+
+                    $datos_qr = "Entrada ID: $nueva_entrada_id ";  
+                    $nombre_qr = "entrada_$nueva_entrada_id.png";
+                    $ruta_qr = '../images/qrs/'.$nombre_qr;
+                  
+                    QRcode::png($datos_qr, $ruta_qr);
+                        
+                    
+                
+                    
+                    mysqli_query($conection, "UPDATE entrada SET ruta_qr = '$ruta_qr' WHERE id = '$nueva_entrada_id'");
+                
                     $cont++;
                 }
-
+                
+               
                 
 
-                /*require "../phpqrcode/qrlib.php";    
-	
-                //Declaramos una carpeta temporal para guardar la imagenes generadas
-                $dir = 'temp/';
                 
-                //Si no existe la carpeta la creamos
-                if (!file_exists($dir))
-                    mkdir($dir);
-                
-                    //Declaramos la ruta y nombre del archivo a generar
-                $filename = $dir.'test.png';
 
-                    //Parametros de Condiguración
+                echo "Compra realizada con exito!";
                 
-                $tamaño = 10; //Tamaño de Pixel
-                $level = 'L'; //Precisión Baja
-                $framSize = 3; //Tamaño en blanco
-                $contenido = $recital_id; //Texto
-                
-                    //Enviamos los parametros a la Función para generar código QR 
-                QRcode::png($contenido, $filename, $level, $tamaño, $framSize); 
-                
-                    //Mostramos la imagen generada
-                echo '<img src="'.$dir.basename($filename).'" /><hr/>';  
+
+         } 
+
             
-                */
-                
-                echo '<a href="../public/index.php"><button class="buttom">Volver a el catalogo</button></a>';
-                echo '</div>';         
-        }    
     
     ?>
 

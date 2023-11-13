@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/style.css">
-    <link rel="icon" href="../images/logo.png">
+
     <title>TicketNow</title>
 
 </head>
@@ -48,6 +48,7 @@
                     {
                         $entrada = mysqli_fetch_array($consulta);
                         $recital_id = $entrada['recital_id'];
+                        $entrada_qr = $entrada['ruta_qr'];
                         $consulta_2 = mysqli_query($conection, "SELECT * from recital where id = $recital_id");
 
                         $recital = mysqli_fetch_array($consulta_2);
@@ -56,10 +57,13 @@
 
                         $estadio = mysqli_fetch_array($consulta_3);
 
+                        echo '<p>ID de la entrada: <span>' . $entrada['id'] . '</span></p>';
                         echo '<p>Artista: <span>' . $recital['artista'] . '</span></p>';
                         echo '<p>Fecha: <span>' . $recital['fecha'] . '</span></p>';
                         echo '<p>Horario: <span>' . $recital['hora'] . '</span></p>';
                         echo '<p>Estadio: <span>' . $estadio['nombre'] . '</span></p>';
+                        echo '<img src="' . $entrada['ruta_qr'] . '" alt="Código QR de la entrada ' . $entrada['id'] . '">';
+
                     }
                     else
                     {
