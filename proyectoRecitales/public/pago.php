@@ -62,11 +62,6 @@
             $precioUnidad =  $_POST['precio'] * 1.1;
             $estadio_id = $_POST['estadio_id'];
             $recital_id = $_POST['recital_id'];
-
-            
-
-
-
         ?>
             <div class="pago">
             <h2>Detalle de la compra</h2>
@@ -155,18 +150,23 @@
             }
             else 
             {
-                
-                header("Location: ../public/compra.php?error-sector=true");
-                
+                echo '<h3>Este sector se encuentra agotado, por favor elija otro.</h3>';
+                echo '<a href="../public/compra.php?dato='. $recital_id .'"><button class="buttom">Volver a elegir sector</button></a>';
             }
         }
         else if (isset($_SESSION['membresia']) && $_SESSION['membresia'] === 'Administrador')
         {
-            header("Location: ../public/compra.php?error-admin=true");
+            echo '<div class="compra-realizada">';
+            echo '<h3>No puede realizar compras como administrador, por favor inicie sesion como suscriptor.</h3>';
+            echo '<a href="../public/compra.php"><button class="buttom">Volver a el catalogo</button></a>';
+            echo '</div>';
         }
         else
         {
-            header("Location: ../public/compra.php?error-sesion=true");
+            echo '<div class="compra-realizada">';
+            echo '<h3>Incie sesion para poder realizar esta compra.</h3>';
+            echo '<a href="../public/login.php"><button class="buttom">Log-In</button></a>';
+            echo '</div>';
         }
         ?>
 

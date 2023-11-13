@@ -48,9 +48,6 @@
 
         echo '<div class="compra-realizada">';
         echo '<h3>Compra realizada con exito!</h3>';
-        echo '<button class="buttom">Volver a el catalogo</button>';
-        echo '</div>';
-        
         
             $tipo_entrada = $_SESSION['tipo_entrada'];
             $cantidad_entradas = $_SESSION['cantidad_entradas'];
@@ -107,8 +104,9 @@
             
                 */
                 
-                 
-         }    
+                echo '<a href="../public/index.php"><button class="buttom">Volver a el catalogo</button></a>';
+                echo '</div>';         
+        }    
     
     ?>
 
