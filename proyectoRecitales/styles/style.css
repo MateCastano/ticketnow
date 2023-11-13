@@ -381,10 +381,11 @@ h2{
 }
 .secciones{
     display: flex;
+    justify-content: center;
+    gap: 8rem;
 }
 .seccion{
     text-align: left;
-    padding-left: 10rem;
 }   
 .eventos h2{
     font-size: 1.5rem;

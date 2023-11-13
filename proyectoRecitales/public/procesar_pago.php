@@ -43,25 +43,12 @@
     
         session_start();
 
-        
-
+   
 
         $payment = $_GET['payment_id'];
-        
         $payment_type = $_GET['payment_type'];
-        
-        echo '<p>ID de la operación: <span>' . $payment . '</span></p>';
-        echo '<p>Estado: <span>Aprobado</span></p>';
-       
-        echo $payment_type . '<br>';
-       
 
         
-        
-    
-
-        
-            
             $tipo_entrada = $_SESSION['tipo_entrada'];
             $cantidad_entradas = $_SESSION['cantidad_entradas'];
             $estadio_id = $_SESSION['estadio_id'];
@@ -128,9 +115,17 @@
                
                 
 
+                echo '<div class="compra-realizada">';
+                echo '<p>ID de la operación: <span>'.$payment.'</span></p>';
+                echo '<p>Estado: <span>Aprobado</span></p>';
+                echo '<h3>Compra realizada con exito! Puedes visualizar tus entradas en "Mi Cuenta".</h3>';
+                echo '<a href="../public/account.php"><button class="buttom">Ir a Mi Cuenta</button></a>';
+                echo '</div>';
                 
+            
+               
 
-                echo "Compra realizada con exito!";
+                
                 
 
          } 
