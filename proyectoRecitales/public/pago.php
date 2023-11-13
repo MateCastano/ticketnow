@@ -158,7 +158,7 @@
         {
             echo '<div class="compra-realizada">';
             echo '<h3>No puede realizar compras como administrador, por favor inicie sesion como suscriptor.</h3>';
-            echo '<a href="../public/compra.php"><button class="buttom">Volver a el catalogo</button></a>';
+            echo '<a href="../public/index.php"><button class="buttom">Volver a el catalogo</button></a>';
             echo '</div>';
         }
         else
