@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/style.css">
-
     <link rel="icon" href="../images/logo.png">
+
     <title>TicketNow</title>
 
 </head>
@@ -15,7 +15,6 @@
 <?php include("../public/conection.php"); 
 
     $resultado = mysqli_query($conection, "SELECT * FROM recital");
-
     
 ?>
 
@@ -45,35 +44,42 @@
                 </ul>
             </nav>        
     </header>
+    <div class="pago">
+        <?php
+            $id = $_GET['id'];  
 
-    <main class="main-buscador">
+            $consultaEntrada = mysqli_query($conection, "SELECT * FROM entrada where id = $id");
 
-        <form class ="form-buscador" action="../public/resultados.php" method="GET">
-            
-            <input class="buscador" type="text" name="busqueda" placeholder="Busca tu artista favorito aqui">
-        </form>
+            $entrada = mysqli_fetch_array($consultaEntrada);
+            $id_recital = $entrada['recital_id'];
 
-            <div class="recitales">
+            $consultaRecital = mysqli_query($conection, "SELECT * FROM recital where id = $id_recital");
+            $recital = mysqli_fetch_array($consultaRecital);
 
-           
-            <?php
-            if ($resultado->num_rows > 0) {
-                while ($row = mysqli_fetch_assoc($resultado)) {
-                    echo '<div class="recital">
-                        <h3>'. $row["artista"]. '</h3>
-                        <img src="../images/' . $row["imagen_publicidad"] . '" alt="Imagen">
-                        
-                        <b><a href="compra.php?dato=' .$row["id"]. '">Comprar</a></b>
-                    </div>';
-                    
-            
-                }
-            } 
-            ?>        
-            </div>
-
-    </main>
-
+            $id_estadio = $recital['estadio_id'];
+            $consultaEstadio = mysqli_query($conection, "SELECT * FROM estadio where id = $id_estadio");
+            $estadio = mysqli_fetch_array($consultaEstadio);
+        ?>
+            <h2>Detalles de la entrada</h2>
+            <div class="secciones">   
+                <div class="seccion">
+                    <h3>Fecha: </h3>
+                    <h3>Estadio: </h3>
+                    <h3>Direccion: </h3>
+                    <h3>Sector: </h3>
+                    <h3>Horario: </h3>
+                    <h3>Total: </h3>
+                </div>
+                <div class = "seccion">
+                    <h3 class="dato"><?php echo $recital['fecha'] ?></h3>
+                    <h3 class="dato"><?php echo $estadio['nombre'] ?></h3>
+                    <h3 class="dato"><?php echo $estadio['direccion'] ?></h3>
+                    <h3 class="dato"><?php echo $entrada['sector'] ?></h3>
+                    <h3 class="dato"><?php echo $recital['hora'] ?></h3>
+                    <h3 class="dato">$<?php echo $entrada['precio'] ?></h3>
+                </div>
+            </div> 
+        </div>
     <footer class="footer">
         <div class="footer-links">
         <nav class="navbar">

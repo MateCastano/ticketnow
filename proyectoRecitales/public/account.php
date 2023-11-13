@@ -84,7 +84,7 @@
                         echo '<div class="recital">
                         <h3>'. $recital["artista"]. '</h3>
                         <img src="../images/' . $recital["imagen_publicidad"] . '" alt="Imagen">
-                        <b><a href="#' . $entrada["id"] . '">Ver datos</a></b>
+                        <b><a href="../public/datos-entradas.php?id=' . $entrada["id"] . '">Ver datos</a></b>
                         </div>';
                     }
                 }

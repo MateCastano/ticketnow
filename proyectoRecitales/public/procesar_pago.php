@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../styles/normalize.css">
     <link rel="stylesheet" href="../styles/style.css">
+    <link rel="icon" href="../images/logo.png">
 
     <title>TicketNow</title>
 
@@ -33,41 +34,31 @@
             </nav>       
             
     </header>
-    <main>                   
+    <main>  
+                        
     <?php
         include("../public/conection.php"); 
     
         session_start();
-
-        
-
 
         $payment = $_GET['payment_id'];
         $status = $_GET['status'];
         $payment_type = $_GET['payment_type'];
         
 
-        echo $payment . '<br>';
-        echo $status .'<br>';
-        echo $payment_type . '<br>';
-       
-
+        echo '<div class="compra-realizada">';
+        echo '<h3>Compra realizada con exito!</h3>';
+        echo '<button class="buttom">Volver a el catalogo</button>';
+        echo '</div>';
         
         
-    
-
-        
-            
             $tipo_entrada = $_SESSION['tipo_entrada'];
             $cantidad_entradas = $_SESSION['cantidad_entradas'];
             $estadio_id = $_SESSION['estadio_id'];
             $precio = $_SESSION['precioEntrada'];
             $recital_id =  $_SESSION['recital_id'];
             $usuario_id = $_SESSION['id'];
-            
-            
-            
-            
+ 
             $consultaRecital = mysqli_query($conection, "SELECT * FROM recital WHERE id = '" . $recital_id . "'");
             $recital = mysqli_fetch_assoc($consultaRecital);
     
@@ -115,12 +106,9 @@
                 echo '<img src="'.$dir.basename($filename).'" /><hr/>';  
             
                 */
-                echo "Compra realizada con exito!";
                 
-
-         } 
-
-            
+                 
+         }    
     
     ?>
 
