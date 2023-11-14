@@ -165,7 +165,7 @@
         {
             echo '<div class="compra-realizada">';
             echo '<h3>Incie sesion para poder realizar esta compra.</h3>';
-            echo '<a href="../public/login.php"><button class="buttom">Log-In</button></a>';
+            echo '<a href="../public/login.php"><button class="buttom">Iniciar sesion</button></a>';
             echo '</div>';
         }
         ?>
