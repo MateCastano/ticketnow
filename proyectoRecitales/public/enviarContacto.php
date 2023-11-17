@@ -19,7 +19,7 @@
             $mail = new PHPMailer();
 
             $mail->isSMTP();     
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            
             $mail->Host = 'smtp.gmail.com';           
             $mail->Port = 465;        
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
@@ -30,12 +30,12 @@
             $mail->Password = 'ewiz kzsu aydr ntjx';
           
             $mail->setFrom('webticketnow@gmail.com', 'TicketNow');           
-            $mail->addAddress('danteleivas01@gmail.com');     
+            $mail->addAddress('danteleivas01@gmail.com'); // MAIL DESTINATARIO
             
             $mail->isHTML(true);
             $mail->Subject = 'Mensaje desde el formulario de contacto';
 
-            // Cuerpo del mensaje en formato HTML
+            
             $mail->Body = "
                 
                     <p><strong>Mensaje:</strong> $user_message</p>
@@ -58,15 +58,12 @@
             
             if (!$mail->send()) {
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } else {
-                echo 'Message sent!';
-                
-            }
+            } 
 
 
-    //mail('danteleivas01@gmail.com', 'Mensaje via contacto', $user_message);
+    
 
     $consulta = mysqli_query($conection, "INSERT INTO contacto values(0,'$name','$surname','$email', '$username', '$user_message')");
 
-    //header("Location: ../public/contacto.php");
+    header("Location: ../public/contacto.php");
 ?>
