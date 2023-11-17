@@ -10,6 +10,7 @@ class ComposerStaticInit6e6b7af54d2644cb440017a9d05dd56c
         'P' => 
         array (
             'Psr\\Cache\\' => 10,
+            'PHPMailer\\PHPMailer\\' => 20,
         ),
         'M' => 
         array (
@@ -29,6 +30,10 @@ class ComposerStaticInit6e6b7af54d2644cb440017a9d05dd56c
         'Psr\\Cache\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
+        ),
+        'PHPMailer\\PHPMailer\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpmailer/phpmailer/src',
         ),
         'MercadoPago\\' => 
         array (
@@ -56,8 +61,8 @@ class ComposerStaticInit6e6b7af54d2644cb440017a9d05dd56c
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
-            1 => __DIR__ . '/..' . '/doctrine/common/src',
+            0 => __DIR__ . '/..' . '/doctrine/common/src',
+            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
         ),
     );
 

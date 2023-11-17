@@ -76,7 +76,7 @@
                 </div>
                 <div class = "seccion">
 
-                    <h3 class="dato"># <?php echo $recital['id'] ?></h3>
+                    <h3 class="dato"># <?php echo $entrada['id'] ?></h3>
                     <h3 class="dato"><?php echo $recital['fecha'] ?></h3>
                     <h3 class="dato"><?php echo $estadio['nombre'] ?></h3>
                     <h3 class="dato"><?php echo $estadio['direccion'] ?></h3>

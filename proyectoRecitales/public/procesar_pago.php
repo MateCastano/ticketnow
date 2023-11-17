@@ -39,7 +39,9 @@
       
         include("../public/conection.php"); 
         include("../phpqrcode/qrlib.php");
-
+        use PHPMailer\PHPMailer\PHPMailer;
+        use PHPMailer\PHPMailer\SMTP;
+        use PHPMailer\PHPMailer\Exception;
     
         session_start();
 
@@ -56,7 +58,48 @@
             $recital_id =  $_SESSION['recital_id'];
             $usuario_id = $_SESSION['id'];
             
+            $email = $_SESSION["email"];
+            $usuario["nombre"]   = $_SESSION["nombre"];
+            $usuario["apellido"] = $_SESSION["apellido"];
+            $usuario["username"] = $_SESSION["username"];
+
             
+            require '../vendor/autoload.php';
+            
+            
+                      
+                        $mail = new PHPMailer();
+            
+                        $mail->isSMTP();     
+                        
+                        $mail->Host = 'smtp.gmail.com';           
+                        $mail->Port = 465;        
+                        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+                        $mail->SMTPAuth = true;
+            
+                        
+                        $mail->Username = 'webticketnow@gmail.com';
+                        $mail->Password = 'ewiz kzsu aydr ntjx';
+                      
+                        $mail->setFrom('webticketnow@gmail.com', 'TicketNow');           
+                        $mail->addAddress($email);     
+                        
+                        $mail->isHTML(true);
+                        $mail->Subject = 'Tus eTickets!';
+            
+                        
+                       
+            
+                        
+                        
+            
+                        
+            
+                       
+                        
+            
+                        
+                        
             
             
             $consultaRecital = mysqli_query($conection, "SELECT * FROM recital WHERE id = '" . $recital_id . "'");
@@ -71,7 +114,8 @@
                 
                 mysqli_query($conection, "UPDATE recital SET $tipo_entrada = $nueva_capacidad WHERE id = '" . $recital['id'] . "'");
 
-                 
+                $mail->Body = "<h2>Hola $usuario[nombre]! Acá están los detalles de tus eTickets: </h2>";
+
                 $cont = 0;
                 while ($cont < $cantidad_entradas) {
                     $consulta = mysqli_query($conection, "INSERT INTO entrada (recital_id, usuario_id, precio, sector) VALUES ('$recital_id', '$usuario_id', '$precio','$tipo_entrada')");
@@ -105,14 +149,31 @@
                     QRcode::png($datos_qr, $ruta_qr);
                         
                     
-                
-                    
                     mysqli_query($conection, "UPDATE entrada SET ruta_qr = '$ruta_qr' WHERE id = '$nueva_entrada_id'");
+
+
+
+                    $mail->addAttachment($ruta_qr, "entrada_$nueva_entrada_id.png", "base64", "image/png");
+
+                    $mail->Body .= "
+                        <p><strong>Nº Ticket:</strong> # $nueva_entrada_id</p>
+                        <p><strong>Artista:</strong> $recital[artista]</p>
+                        <p><strong>Precio:</strong> $precio</p>
+                        <p><strong>Sector:</strong> $tipo_entrada</p>
+                        
+                        <hr>"; 
                 
                     $cont++;
                 }
                 
                
+               
+            
+
+        
+                
+               
+            
                 
 
                 echo '<div class="compra-realizada">';
@@ -122,7 +183,7 @@
                 echo '<a href="../public/account.php"><button class="buttom">Ir a Mi Cuenta</button></a>';
                 echo '</div>';
                 
-            
+                
                
 
                 
@@ -130,6 +191,11 @@
 
          } 
 
+         $mail->Body .= "<p>Gracias por tu compra!</p>";
+         $mail->AltBody = "Gracias por confiar!";
+         if (!$mail->send()) {
+            echo 'Mailer Error: ' . $mail->ErrorInfo;
+         } 
             
     
     ?>
